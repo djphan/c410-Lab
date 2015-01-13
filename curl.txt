@@ -1,3 +1,374 @@
+$ curl get http:// simplebits.com
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>SimpleBits </title>                  
+
+<meta charset="utf-8" />
+<meta name="description" content="Handcrafted pixels and text by Dan Cederholm." />
+<meta name="author" content="Dan Cederholm" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+<meta name="google-site-verification" content="X5MaeCMvnUjSSNC8nT1nNnvUeJCRJW9_ZDrSjUSN6Ro" />
+
+<link rel="stylesheet" media="screen, projection" href="http://simplebits.com/-/css/screen.css" />
+<link rel="stylesheet" href="http://cloud.typography.com/712324/713040/css/fonts.css" type="text/css" />
+<link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="/feed" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="/wp/xmlrpc.php?rsd" />
+
+<!-- enable HTML5 elements in IE7+8 -->
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<script type="text/javascript" src="/js/jquery-1.2.6.min.js"></script>
+<script type="text/javascript" src="/js/scripts.js"></script>
+<script type="text/javascript" src="/mint/?js"></script>
+</head>
+
+<body class="home blog">
+
+<div id="wrap">
+
+<header role="banner">
+	<div id="logo">
+		<a href="http://simplebits.com"><img src="/-/img/sb-logo-plain.png" alt="SB" /></a>
+	</div>
+	
+	<nav role="navigation">
+		<ul class="group">
+			<li id="t-home" class="active"><a href="/">Home</a></li>
+			<li id="t-work"><a href="/work">Work</a></li>
+			<li id="t-books"><a href="#books">Books</a></li>
+			<li id="t-about"><a href="/about">About</a></li>
+		</ul>
+	</nav>
+</header> <!-- /header -->
+
+<hr />
+	
+<div id="main" role="main">	
+	
+
+					<article>
+			<header>
+				<h2><a href="http://simplebits.com/notebook/2013/11/13/sass-book/">Sass For Web Designers</a></h2>	
+			</header>
+			
+			<aside>
+				<ul>
+					<li><h4>Nov 13, 2013</h4></li>
+					<li><a href="http://simplebits.com/categories/books/" title="View all posts in books" rel="category tag">books</a>, <a href="http://simplebits.com/categories/css/" title="View all posts in css" rel="category tag">css</a>, <a href="http://simplebits.com/categories/sass/" title="View all posts in sass" rel="category tag">sass</a></li>
+					<li><a href="http://smpl.bt/19k7Qpj" class="article-perm"><img src="/-/img/icon-shorturl.png" alt="post"><span>smpl.bt/19k7Qpj</span></a></li>
+				</ul>
+			</aside>
+			
+			<p>I&#8217;m dusting off this ol&#8217; website to announce that, today, my fifth book has been published. It&#8217;s called <cite><a href="http://www.abookapart.com/products/sass-for-web-designers">Sass For Web Designers</a></cite> and has a familiar pink cover. The book is the 10th release from the wonderful folks at <a href="http://abookapart.com">A Book Apart</a>. They are the best team an author could hope to work with, and I was honored to follow up <cite><a href="http://www.abookapart.com/products/css3-for-web-designers">CSS3 For Web Designers</a></cite> with a book about <a href="http://sass-lang.com">Sass</a> (something I was reluctant to embrace for years). And that&#8217;s why I wanted to write this book: To convince other folks like me out there that Sass can make their lives easier and more efficient when it comes to creating websites.</p>
+<p><a href="http://www.abookapart.com/products/sass-for-web-designers"><img class="alignnone size-full wp-image-3255" title="Sass For Web Designers" src="http://simplebits.com/wp/notebook/uploads/2013/11/sfwd.jpg" alt="book" /></a></p>
+<p>I thank <a href="http://dribbble.com">Dribbble</a> Co-Founder, <a href="http://frogandcode.com">Rich Thornett</a>, for being relentless in advocating Sass&#8217; benefits while I resisted for probably about a year. Once I discovered that I didn&#8217;t need to learn complex programming or command line shenanigans, and that it didn&#8217;t need to immediately change my workflow or interrupt the way I&#8217;ve been writing CSS for a decade, well then I was hooked. Using Sass doesn&#8217;t mean having to learn Sass in its entirety. You can start small, and slowly add more of Sass&#8217; capabilities over time—even on large, complex, legacy stylesheets. It&#8217;s what I&#8217;ve been doing with Dribbble&#8217;s CSS for a long time now. Converting more and more of the stylesheet to Sass as needed, or as I have time to refactor things and/or learn more about what Sass can help with. You can start quickly and easily, then incrementally add more Sass power as you become more comfortable with it.</p>
+<p>Again, my primary goal for this little pink book is to simply get more people interested in using Sass to make their lives easier. Sass is a wonderfully helpful tool with a great community behind it, in a discipline that can be complicated and frustrating. I&#8217;m hoping you give Sass, and the book, a try!</p>
+<p>And now for a heaping pile of thank yous. To<a href="http://zeldman.com"> Jeffrey Zeldman</a>, <a href="http://jasonsantamaria.com">Jason Santa Maria</a>, and <a href="http://aworkinglibrary.com">Mandy Brown</a> for creating a place that I genuinely want to write for. To <a href="http://katelledu.com">Katel LeDu</a> for being a fantastic project manager and steering things the entire way. This year has been particular rough for me personally, so it&#8217;s especially satisfying to see this thing actually released. To <a href="http://incisive.nu">Erin Kissane</a> for making me sound far better than I actually am. Thanks also to<a href="http://sushiandrobots.com"> Jina Bolton</a> for tech editing the book, as well as her work for the Sass community in general. To <a href="http://css-tricks.com">Chris Coyier</a> for being smarter than all of us and agreeing to write a foreword. Also to <a href="http://www.hamptoncatlin.com">Hampton Caitlin</a>, <a href="http://jennlukas.com">Jenn Lukas</a>, and <a href="http://chriseppstein.github.io">Chris Eppstein</a> for saying nice things about the book and letting us print those nice things on the inside cover (which Jason brilliantly selected to be Dribbble pink, naturally) among the other awesome things they do for the web. Like, I don&#8217;t know, <em>creating</em> Sass, building Sass, and generally being rad.</p>
+<p>Here&#8217;s some things you could do now that you&#8217;ve reached the end of this fascinating post:</p>
+<ul>
+<li><a href="http://www.abookapart.com/products/sass-for-web-designers">Go buy the book!</a></li>
+<li><a href="http://alistapart.com/article/why-sass">Read an excerpt from the book published today on <cite>A List Apart</cite></a></li>
+<li><a href="http://www.muleradio.net/thebigwebshow/102/">Listen to Jeffrey Zeldman and I chat about the book and other stuff</a></li>
+<li><a href="http://laughingsquid.com/sushi-cats-a-cute-collection-of-magical-felines-resting-on-sushi-rice/">Dig into the magical world of Sushi Cats</a></li>
+</ul>
+					</article>
+							<article>
+			<header>
+				<h2><a href="http://simplebits.com/notebook/2013/02/16/food-for-thought/">Food for Thought</a></h2>	
+			</header>
+			
+			<aside>
+				<ul>
+					<li><h4>Feb 16, 2013</h4></li>
+					<li><a href="http://simplebits.com/categories/design/" title="View all posts in design" rel="category tag">design</a>, <a href="http://simplebits.com/categories/food-drink/" title="View all posts in food" rel="category tag">food</a></li>
+					<li><a href="http://smpl.bt/12RtpuO" class="article-perm"><img src="/-/img/icon-shorturl.png" alt="post"><span>smpl.bt/12RtpuO</span></a></li>
+				</ul>
+			</aside>
+			
+			<p><a href="http://nesoupfactorysalem.com/soups-of-the-day/">This is my favorite website</a>. I visit it almost every day. It&#8217;s not responsive. It&#8217;s not optimized for iPhone. It looks blurry on a Retina display. It doesn&#8217;t use the latest HTML5/CSS3 framework. It doesn&#8217;t have a thoughtful vertical rhythm. The fonts are nothing special. It is neither skeumorphic nor flat. It doesn&#8217;t have its own favicon. It doesn&#8217;t have a native app or Twitter or Instagram. It doesn&#8217;t use AJAX or SCRUM or node.js or Sinatra. It doesn&#8217;t have an API or an RSS feed or VC funding. It hasn&#8217;t been featured on a prominent tech blog or won an award.</p>
+<p>It tells me the soups of the day.</p>
+<p>Freely distributed information that&#8217;s relevant to the person reading it. That&#8217;s web design.</p>
+					</article>
+							<article>
+			<header>
+				<h2><a href="http://simplebits.com/notebook/2012/04/02/hfj/">A Typographic Refresh</a></h2>	
+			</header>
+			
+			<aside>
+				<ul>
+					<li><h4>Apr 2, 2012</h4></li>
+					<li><a href="http://simplebits.com/categories/design/" title="View all posts in design" rel="category tag">design</a>, <a href="http://simplebits.com/categories/typography/" title="View all posts in typography" rel="category tag">typography</a></li>
+					<li><a href="http://smpl.bt/HByDEK" class="article-perm"><img src="/-/img/icon-shorturl.png" alt="post"><span>smpl.bt/HByDEK</span></a></li>
+				</ul>
+			</aside>
+			
+			<p>A little over five years ago, <a href="http://airbagindustries.com">Greg Storey</a> suggested Whitney for the SimpleBits logotype that went along with a <a href="http://simplebits.com/notebook/2006/12/04/rebrand/">previous brand update</a>. I&#8217;m thankful he did, because since then it&#8217;s become a favorite typeface around these parts, eventually becoming the base for the current &#8216;SB&#8217; mark. Over the next few years, <a href="http://typography.com">Hoefler &amp; Frere-Jones</a> catalog became my standard go-to font choices for presentation slides. I was hooked.</p>
+<p>Over the weekend I made some subtle design tweaks here, and some not-so-subtle type refreshing. I&#8217;m honored to be beta testing H&amp;FJ&#8217;s forthcoming webfonts offering. You&#8217;ll now see <a href="http://www.typography.com/fonts/font_overview.php?productLineID=100026&amp;path=head">Whitney</a> and <a href="http://www.typography.com/fonts/font_overview.php?productLineID=100035&amp;path=head">Tungsten</a> being used throughout the site. I&#8217;m amazed at the level of detail H&amp;FJ have been putting into the screen versions of their famous fonts. Whitney ScreenSmart, in particular, looks downright <em>glorious</em> on a Retina display. You might&#8217;ve seen Whitney in use over at <a href="http://kottke.org">Kottke.org</a> as well.</p>
+<p>So, many thanks to H&amp;FJ for giving me an excuse to spruce up the place a bit. Perhaps it&#8217;ll inspire to write a bit more here.</p>
+					</article>
+							<article>
+			<header>
+				<h2><a href="http://simplebits.com/notebook/2012/02/07/pears/">Pears</a></h2>	
+			</header>
+			
+			<aside>
+				<ul>
+					<li><h4>Feb 7, 2012</h4></li>
+					<li><a href="http://simplebits.com/categories/css/" title="View all posts in css" rel="category tag">css</a>, <a href="http://simplebits.com/categories/markup/" title="View all posts in markup" rel="category tag">markup</a>, <a href="http://simplebits.com/categories/standards/" title="View all posts in standards" rel="category tag">standards</a></li>
+					<li><a href="http://smpl.bt/yVLWCO" class="article-perm"><img src="/-/img/icon-shorturl.png" alt="post"><span>smpl.bt/yVLWCO</span></a></li>
+				</ul>
+			</aside>
+			
+			<p>Yesterday, on stage at <a href="http://aneventapart.com/2012/atlanta/">An Event Apart Atlanta</a>, I announced <strong><a href="http://pea.rs">Pears</a></strong>: an open source WordPress theme for creating your own markup &amp; style pattern library.</p>
+<p>I wanted to create my own database repository of commonly used patterns and figured the tool might be useful for others as well. Breaking interfaces down into patterns has been immensely helpful in learning and re-evaluating the best possible code to implement them. I&#8217;ve just gotten started and will be adding more as I create them.</p>
+<p>But Pears isn&#8217;t about how <em>I</em> code these patterns—it&#8217;s a tool for creating <em>your own</em>.</p>
+<p>The theme is available <a href="https://github.com/simplebits/Pears">on GitHub</a> for those that want to chip in and make it even better. Admittedly, the code is a little rough here and there, but it works.</p>
+<p>Looking forward to seeing others&#8217; takes on the patterns that power flexible web interfaces.</p>
+					</article>
+							<article>
+			<header>
+				<h2><a href="http://simplebits.com/notebook/2011/12/20/bpwd3e/">Bulletproof Web Design, Third Edition</a></h2>	
+			</header>
+			
+			<aside>
+				<ul>
+					<li><h4>Dec 20, 2011</h4></li>
+					<li><a href="http://simplebits.com/categories/books/" title="View all posts in books" rel="category tag">books</a>, <a href="http://simplebits.com/categories/css/" title="View all posts in css" rel="category tag">css</a>, <a href="http://simplebits.com/categories/design/" title="View all posts in design" rel="category tag">design</a>, <a href="http://simplebits.com/categories/markup/" title="View all posts in markup" rel="category tag">markup</a>, <a href="http://simplebits.com/categories/standards/" title="View all posts in standards" rel="category tag">standards</a></li>
+					<li><a href="http://smpl.bt/rIWSC7" class="article-perm"><img src="/-/img/icon-shorturl.png" alt="post"><span>smpl.bt/rIWSC7</span></a></li>
+				</ul>
+			</aside>
+			
+			<p><a href="http://www.amazon.com/gp/product/0321808355/ref=as_li_ss_tl?ie=UTF8&amp;tag=simplebits-20&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=0321808355"><img class="alignnone size-full wp-image-3176" title="3e" src="http://simplebits.com/wp/notebook/uploads/2011/12/3e.jpg" alt="book" /></a></p>
+<p>Yesterday, a copy of my latest book arrived in the mail, the <strong>Third Edition</strong> of <em><a href="http://www.amazon.com/gp/product/0321808355/ref=as_li_ss_tl?ie=UTF8&amp;tag=simplebits-20&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=0321808355">Bulletproof Web Design</a>.</em> The first edition came out back in 2005, and I&#8217;ve been revising it every few years. This latest edit was a bit larger than the 2nd because so much has changed. HTML5, CSS3, Responsive Web Design—all of these things dovetail nicely into the core bulletproof concepts from the original book.</p>
+<p>If you have the 2nd edition, the new version is likely not a necessary upgrade (New Riders probably loves me for saying that). Meaning, the guidelines for building flexible websites are still there, but a lot of the code and some of the examples have been brought up to speed. I&#8217;m most happy that the book has been updated for those that <em>haven&#8217;t</em> read it before. And as always, I think it&#8217;s a great book for those <em>getting started </em>in building flexible websites with semantic markup and style.</p>
+<p>The final chapter was rewritten from scratch to include a new fictional case study that follows a very simple example of <a href="http://www.abookapart.com/products/responsive-web-design">Responsive Web Design</a>, which I think is a natural extension of the previous chapters.</p>
+<p>If you haven&#8217;t read the previous editions, I hope you enjoy it. It should be available by the end of the week.</p>
+					</article>
+							<article>
+			<header>
+				<h2><a href="http://simplebits.com/notebook/2011/10/25/my-new-ride/">My New Ride</a></h2>	
+			</header>
+			
+			<aside>
+				<ul>
+					<li><h4>Oct 25, 2011</h4></li>
+					<li><a href="http://simplebits.com/tags/transportation/" rel="tag">transportation</a>, <a href="http://simplebits.com/categories/misc/" title="View all posts in misc" rel="category tag">misc</a></li>
+					<li><a href="http://smpl.bt/sH0f29" class="article-perm"><img src="/-/img/icon-shorturl.png" alt="post"><span>smpl.bt/sH0f29</span></a></li>
+				</ul>
+			</aside>
+			
+			<p class="figure-full"><img src="http://simplebits.com/wp/notebook/uploads/2011/10/ride.jpg" alt="scooter" /></p>
+<p class="figure-full">A month ago I made one of the best purchases I&#8217;ve made in a long time. I bought a <em>kick scooter</em>. Not one of those aluminum things with rollerblade wheels where the handle is so short you have to hunch over—but a scooter built for adults.</p>
+<aside><a href="http://www.youtube.com/watch?v=gtn5kg3ZH3M&amp;feature=player_embedded">Check out this video</a> that shows how the KickPed operates—particularly how it folds up.</aside>
+<p class="figure-full">After a fair amount of research I found the <a href="http://www.nycewheels.com/kickped-kick-scooter.html">KickPed</a>, which is a custom model designed by <a href="http://www.nycewheels.com/">NYCEWheels</a>. It&#8217;s not cheap, but it&#8217;s built for the streets of New York and is supposedly maintenance free. The wheels are wide, solid rubber, the birch footboard is trimmed skinny to avoid hitting it with your kicking foot. The handlebars are fixed height (they come in two sizes) and the whole thing folds by pulling up the spring-loaded metal sleeve at the bottom, exposing a single hinge. A strap goes around the back fender and can be held over your shoulder.</p>
+<p class="figure-full">Now I may not be riding on the streets of New York, but the streets here in Salem, Mass. have a fair amount of brick and old cobblestone. The KickPed can handle it all with ease. It&#8217;s a tank.</p>
+<p class="figure-full">I use it to make the short trip from the house to the office, but the primary reason this was a successful purchase is that I can scoot with my son to school along a bike path (until it starts snowing). Me scooting at full blast happens to be the same speed as him biking. For now, the synergy is palpable.</p>
+<p class="figure-full">Oh, and I&#8217;m not being paid to post this little review, but rather posting for the benefit of future kick scooter researchers.&nbsp;And yes I likely look absurd riding it.</p>
+					</article>
+							<article>
+			<header>
+				<h2><a href="http://simplebits.com/notebook/2011/10/17/instapaper4/">New Work: Instapaper 4 Icon</a></h2>	
+			</header>
+			
+			<aside>
+				<ul>
+					<li><h4>Oct 17, 2011</h4></li>
+					<li><a href="http://simplebits.com/tags/ios/" rel="tag">ios</a>, <a href="http://simplebits.com/tags/work/" rel="tag">work</a>, <a href="http://simplebits.com/categories/design/" title="View all posts in design" rel="category tag">design</a>, <a href="http://simplebits.com/categories/icons/" title="View all posts in icons" rel="category tag">icons</a></li>
+					<li><a href="http://smpl.bt/vbp4zU" class="article-perm"><img src="/-/img/icon-shorturl.png" alt="post"><span>smpl.bt/vbp4zU</span></a></li>
+				</ul>
+			</aside>
+			
+			<p class="figure-full"><img src="http://simplebits.com/wp/notebook/uploads/2011/10/instapaper-icon-lg.png" alt="photo" /></p>
+<p>I had the honor of creating the new <a href="http://instapaper.com">Instapaper</a> icon thanks to Jason Santa Maria and his art  direction. The new app is superb, and it&#8217;s out today! Read all about it from creator <a href="http://www.marco.org/2011/10/17/instapaper-4-released">Marco Arment</a> and <a href="http://jasonsantamaria.com/articles/instapaper-4">Jason</a>.</p>
+					</article>
+							<article>
+			<header>
+				<h2><a href="http://simplebits.com/notebook/2011/08/19/adapted/">Adapted</a></h2>	
+			</header>
+			
+			<aside>
+				<ul>
+					<li><h4>Aug 19, 2011</h4></li>
+					<li><a href="http://simplebits.com/tags/responsive/" rel="tag">responsive</a>, <a href="http://simplebits.com/categories/css/" title="View all posts in css" rel="category tag">css</a>, <a href="http://simplebits.com/categories/design/" title="View all posts in design" rel="category tag">design</a>, <a href="http://simplebits.com/categories/dribbble/" title="View all posts in dribbble" rel="category tag">dribbble</a>, <a href="http://simplebits.com/categories/standards/" title="View all posts in standards" rel="category tag">standards</a></li>
+					<li><a href="http://smpl.bt/vPjfqS" class="article-perm"><img src="/-/img/icon-shorturl.png" alt="post"><span>smpl.bt/vPjfqS</span></a></li>
+				</ul>
+			</aside>
+			
+			<p>There&#8217;s no doubt that employing a <a href="http://www.lukew.com/ff/entry.asp?933">mobile first</a>, <a href="http://www.abookapart.com/products/responsive-web-design">responsive design</a> approach to a new project is a wonderful way forward for many sites. I think the most exciting thing about seeing these best practices develop over the last few years is that it finally feels like <em>web</em> design. Finally. That we&#8217;re not designing sheets of paper that happen to be on screen.</p>
+<p>So yes, for new projects under the right circumstances a responsive plan is often the ideal. But what about <em>existing</em> sites? The ones that were designed before browsers supported media queries and before smart people started stitching things together into cohesive battle plans for building flexible websites? Ideally, the move to <a href="http://www.alistapart.com/articles/responsive-web-design/">responsive design</a> with device-agnostic-layout-hotness is one that starts from <em>scratch</em>. That is, <strong>it&#8217;s likely best to rethink it all</strong>.</p>
+<p>For existing sites (particularly ones that are also businesses) teams don&#8217;t always have the luxury of tossing everything aside and building anew. We found ourselves in this position with <a href="http://dribbble.com">Dribbble</a>, a bootstrapped operation still run by 1.5 people (<a href="http://frogandcode.com">Rich Thornett</a> and half of myself, plus wonderkid intern <a href="http://brucespang.com/">Bruce Spang</a>).</p>
+<p>Up until now we haven&#8217;t had an official offering that made the experience of using Dribbble bearable on small screens. If time was plentiful, we&#8217;d have a few options:</p>
+<ul>
+<li>We could&#8217;ve created a separate mobile version of the site. This would&#8217;ve been a lot of work up front, and even more work to maintain. Not to mention loss of full functionality. There are times when I welcome a stripped-down UI for quick tasks, but more often than not, I&#8217;m missing the features found in the &#8220;full&#8221; versions of sites when I&#8217;m browsing on the phone.</li>
+<li>We could&#8217;ve tossed everything aside and redesigned the entire app with responsive design in mind. Fun! But with a growing to-do list, the day-to-day work of managing a large, thriving community, and the business of generating enough money so that everything can keep humming along, it wasn&#8217;t an option for us right now.</li>
+</ul>
+<p>That left a third option, and it was after a few (decaf) lattes and advice from <a href="http://ethanmarcotte.com">Ethan</a>, that I decided the best thing to do was compromise for now. Let&#8217;s keep the same content and code that&#8217;s been powering the large-screened version that Dribbble has always been, and then let&#8217;s do something <em>adaptive</em> to it—using media queries to effectively make the site fluid and as vertical as possible when rendered at 480px wide and smaller. In other words, let&#8217;s take a step <em>towards</em> a responsive design by crafting an adaptive stylesheet that overrides the master to make things usable and readable on phones and small-screened things. Our tiny team can continue to maintain just one codebase.</p>
+<p class="figure-full"><img class="alignnone size-full wp-image-3085" title="adative-dribbble" src="http://simplebits.com/wp/notebook/uploads/2011/08/adative-dribbble.jpg" alt="Dribbble on the iPhone" /></p>
+<p>And so that&#8217;s what we did. Baby steps.</p>
+<p>The process in making this a reality turned out to be <em>very interesting</em>. Much is written and talked about in terms of ideals when it comes to designing for any-and-all screen sizes, but not a lot is talked about in regards to the decisions one has to make when retro-fitting <em>existing</em> fixed-width sites. Sites with loads of interaction elements that need to adapt when it&#8217;s squeezed down skinny.</p>
+<p>What happens to wide, horizontal navigation? Does search have to take up all that room? What about our form patterns? Where does advertising fit? How can we avoid modifying the markup for this section? I did my best to avoid using <code>display: none;</code> to simply hide things that didn&#8217;t quite fit. And not much is hidden, thankfully. But you do need to get creative in terms of how certain UI patterns are handled. Items that were previously rendered horizontally may possibly be stacked vertically. Items that were stacked vertically in tight spaces (short tag names) may be set side-by-side in columns to save vertical space (CSS3&#8242;s <a href="http://www.w3.org/TR/css3-multicol/">mutli-column layout</a> proves very useful for spreading out lists of short links). We&#8217;re all still figuring this stuff out of course, and there&#8217;s so much more I want to write and talk about regarding these (sometimes) ad-hoc solutions. More soon, hopefully.</p>
+<p>For now, I&#8217;m happy with this initial stab at a small screen experience for Dribbble. When time, resources and funds are more abundant, I&#8217;d love us to rethink things in a more holistic manner, but for now incremental improvements will keep us moving. And that&#8217;s the priority.</p>
+					</article>
+							<article>
+			<header>
+				<h2><a href="http://simplebits.com/notebook/2011/06/23/amp-tee/">New in the Shop: Amp Tee</a></h2>	
+			</header>
+			
+			<aside>
+				<ul>
+					<li><h4>Jun 23, 2011</h4></li>
+					<li><a href="http://simplebits.com/tags/ampersand/" rel="tag">ampersand</a>, <a href="http://simplebits.com/tags/tshirt/" rel="tag">tshirt</a>, <a href="http://simplebits.com/categories/products/" title="View all posts in products" rel="category tag">products</a>, <a href="http://simplebits.com/categories/shop/" title="View all posts in shop" rel="category tag">shop</a></li>
+					<li><a href="http://smpl.bt/vIVsJ7" class="article-perm"><img src="/-/img/icon-shorturl.png" alt="post"><span>smpl.bt/vIVsJ7</span></a></li>
+				</ul>
+			</aside>
+			
+			<p>I&#8217;m happy to announce the release of the latest shirt to hit the SimpleBits Shop&#8230; the <a href="http://shop.simplebits.com/product/amp-tee">Amp Tee</a> is available for purchase, like <em>right now</em>.</p>
+<p>The creative brief for this shirt would&#8217;ve gone something like this: Draw an ampersand. Make it musical. Refine its shape, but leave it imperfect for a handcrafted finish. Print it big on a heather black, super-soft, 50/50 shirt from American Apparel. Wear it with pride.</p>
+<aside>The creative progress of the ampersand was documented a bit <a href="http://dribbble.com/simplebits/projects/5-Danpersand">over on Dribbble</a>.</aside>
+<p class="figure-full"><a href="http://shop.simplebits.com/product/amp-tee"><img class="alignnone size-full wp-image-3046" title="amp-tee" src="http://simplebits.com/wp/notebook/uploads/2011/06/amp-tee.jpg" alt="shirt" /></a></p>
+					</article>
+							<article>
+			<header>
+				<h2><a href="http://simplebits.com/notebook/2011/06/07/rwd/">Responsive Web Design: The Book</a></h2>	
+			</header>
+			
+			<aside>
+				<ul>
+					<li><h4>Jun 7, 2011</h4></li>
+					<li><a href="http://simplebits.com/tags/css/" rel="tag">css</a>, <a href="http://simplebits.com/tags/marcotte/" rel="tag">marcotte</a>, <a href="http://simplebits.com/tags/responsive/" rel="tag">responsive</a>, <a href="http://simplebits.com/categories/books/" title="View all posts in books" rel="category tag">books</a></li>
+					<li><a href="http://smpl.bt/v3IkzS" class="article-perm"><img src="/-/img/icon-shorturl.png" alt="post"><span>smpl.bt/v3IkzS</span></a></li>
+				</ul>
+			</aside>
+			
+			<p>Today! <a href="http://unstoppablerobotninja.com">Ethan Marcotte</a>&#8216;s brilliant book for <em>A Book Apart</em> is <a href="http://www.abookapart.com/products/responsive-web-design">available for purchase</a>. You need to go buy it. <em><a href="http://www.abookapart.com/products/responsive-web-design">Responsive Web Design</a></em> is not just an assembly of technologies, but rather a new way of approaching designing for the web. To say this book is important would be an understatement.</p>
+<p>I had the pleasure of doing the technical review of the book. Doing a technical review of anything Ethan writes is bit like trying to find an out-of-place note on Sgt. Pepper. Lots of nodding, belly laughing and, well, <em>learning</em>. (What, you don&#8217;t belly laugh to <em>Being For  the Benefit of Mr. Kite</em>? Ahem.) I can&#8217;t think of a writer I admire more when it comes to the wonderful combination of humor, humility, command of the topic at hand, and a way of explaining it all that makes this stuff fun. That&#8217;s not an easy task.</p>
+<p>We&#8217;re at an exciting moment in web design and development. At times it can feel a bit overwhelming with the amount of relearning one must do to stay on top of best practices. Fortunately, these little books from <em><a href="http://books.alistapart.com">A Book Apart</a></em> help us get up to speed quickly, with a quality you&#8217;d expect from the folks involved. Ethan&#8217;s book raises the bar, and pushes the industry foward to a newly-flexible way of constructing the web.</p>
+<p>&#8220;<em>@abookapart is the Pixar of web design publishing</em>&#8220;, <a href="https://twitter.com/#!/dirtystylus/status/78092955101048832">says @dirtystylus</a>. I think Ethan just wrote the next box office blockbuster.</p>
+					</article>
+			
+	<div class="paging group">
+		<a href="http://simplebits.com/page/2/" ><img src="http://simplebits.com/-/img/icon-pr.png" alt="Previous entry" /></a>			</div>
+	
+</div>
+</div>
+
+
+
+</div> <!-- /wrap -->
+
+<div id="extra" role="complimentary"><div id="extra-inner">
+	<div class="mod mod-main">
+			<h3>About SimpleBits</h3>
+			<p>SimpleBits is the tiny creative studio of designer, author, and speaker, Dan Cederholm. I make websites and things for people like you. Occasionally, I also talk about them here. <a href="/about">More &rarr;</a></p>
+		</div>
+		
+		<div class="mod mod-alt">
+			<h3 class="deck-link"><a href="http://decknetwork.net">Ads via the Deck</a></h3>
+			<ul class="slats thedeck">
+				<li class="group">
+					<script type="text/javascript">
+						//<![CDATA[
+						(function(id) {
+							document.write('<script type="text/javascript" src="' +
+							'http://www.northmay.com/deck/deck' + id + '_js.php?' +
+							(new Date().getTime()) + '"></' + 'script>');
+						})("SB");
+						//]]>
+					</script>
+				</li>
+			</ul>	
+						
+			<h3>What I&#8217;m Working On</h3>
+			
+			<div id="dribbble" class="group"></div>
+			<script type="text/javascript" src = "https://halfcourtshot.googlecode.com/svn/tags/1/js/half-court-shot.jsapp.mh.min.js"></script>
+			<script type="text/javascript">var hcs = new HalfCourtShot({ jersey: "simplebits", shots: 3, goal: 'dribbble' });</script>
+			
+			<h3>Latest Projects</h3>
+			
+			<ul class="slats">
+				<li class="group">
+					<a href="http://dribbble.com/"><img src="https://d13yacurqjgara.cloudfront.net/assets/apple-touch-icon-precomposed-149422efdbc7dba50c50ff0349f1a4dc.png" />Dribbble <em>What are you working on?</em> </a>
+				</li>
+				<li class="group">
+					<a href="/work/instapaper"><img src="http://simplebits.com/img/ins-40.png" />Instapaper <em>Icon design</em> </a>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="mod mod-mini" id="books">
+			<h3>Books by Dan</h3>
+			
+			<ul class="slats">
+			  <li class="group">
+			  	<a href="http://www.abookapart.com/products/sass-for-web-designers"><img src="http://simplebits.com/-/img/sfwd-100.png" />Sass For Web Designers <em>Paperback + eBook <cite>A Book Apart</cite></em></a>
+			  </li>
+				<li class="group">
+					<a href="http://books.alistapart.com/products/css3-for-web-designers"><img src="http://simplebits.com/-/img/css3fwd-flat.png" />CSS3 For Web Designers <em>Paperback + eBook <cite>A Book Apart</cite></em></a>
+				</li>
+				<li class="group">
+					<a href="http://astore.amazon.com/simplebits-20/detail/0321808355"><img src="http://simplebits.com/img/bpwd3e-cover.png" />Bulletproof Web Design <em>Third Edition <cite>New Riders</cite></em> </a>
+				</li>
+				<li class="group">
+					<a href="http://handcraftedcss.com/"><img src="http://simplebits.com/img/hcss-80x96.jpg" />Handcrafted CSS <em>Book and DVD <cite>New Riders</cite></em> </a>
+				</li>
+				<li class="group">
+					<a href="http://astore.amazon.com/simplebits-20/detail/1430219203"><img src="http://simplebits.com/img/wssse-80.jpg" />Web Standards Solutions <em>Special Edition <cite>Friends of Ed</cite></em> </a>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="mod mod-extra">
+			<h3>Archives</h3>
+			<ul class="links">
+					<li><a href='http://simplebits.com/notebook/2013/11/' title='&lt;strong&gt;November&lt;/strong&gt; 2013'><strong>November</strong> 2013</a></li>
+	<li><a href='http://simplebits.com/notebook/2013/02/' title='&lt;strong&gt;February&lt;/strong&gt; 2013'><strong>February</strong> 2013</a></li>
+	<li><a href='http://simplebits.com/notebook/2012/04/' title='&lt;strong&gt;April&lt;/strong&gt; 2012'><strong>April</strong> 2012</a></li>
+	<li><a href='http://simplebits.com/notebook/2012/02/' title='&lt;strong&gt;February&lt;/strong&gt; 2012'><strong>February</strong> 2012</a></li>
+	<li><a href='http://simplebits.com/notebook/2011/12/' title='&lt;strong&gt;December&lt;/strong&gt; 2011'><strong>December</strong> 2011</a></li>
+				<li><a href="http://simplebits.com/notebook/">View all &rarr;</a></li>
+			</ul>
+			
+			<h3>Elsewhere</h3>
+			<ul class="links">
+				<li><a href="http://twitter.com/simplebits"><strong>twitter</strong>/simplebits</a></li>
+				<li><a href="http://dribbble.com/simplebits"><strong>dribbble</strong>/simplebits</a></li>
+				<li><a href="http://instagram.com/simplebits"><strong>instagram</strong>/simplebits</a></li>
+				<li><a href="http://500px.com/simplebits"><strong>500px</strong>/simplebits</a></li>
+				<li><a href="http://flickr.com/photos/simplebitsdan"><strong>flickr</strong>/simplebitsdan</a></li>
+				<li><a href="http://vimeo.com/simplebits"><strong>vimeo</strong>/simplebits</a></li>
+			</ul>
+		</div>
+</div></div> <!-- /extra -->
+</div>
+
+
+<footer role="contentinfo">
+	<h5>Handcrafted pixels &amp; text from Salem, Massachusetts.</h5>
+	<p>Copyright &copy; 1999-2014 <a href="http://simplebits.com">SimpleBits <abbr>LLC</abbr></a>. All rights reserved. Hosted by <a href="http://www.mediatemple.net#a_aid=4e25d772bca21">(mt) Media Temple</a>.</p>
+	<p id="footer-logo"><a href="http://simplebits.com"><img src="/-/img/sb-black.png" alt="SB" /></a></p>
+</footer>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-8023335-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+<!-- c(~) -->
+</body>
+</html>
+
+
 $ curl -X PUT -H'Content-Type: application/json' -d'{"firstName":"Kris", "lastName":"Jordan"}' echo.httpkit.com
 
 {
@@ -28,7 +399,9 @@ $ curl -X PUT -H'Content-Type: application/json' -d'{"firstName":"Kris", "lastNa
 <hr><center>nginx/1.7.6</center>
 </body>
 </html>
-djphan@ui14:~>curl --request DELETE 'http://www.somedomain.com/' 
+
+$ curl --request DELETE 'http://www.somedomain.com/'
+ 
 <html>
 <head><title>405 Not Allowed</title></head>
 <body bgcolor="white">
