@@ -5,7 +5,7 @@ This is the lab 1 assignment for CMPUT 410. It is a review of Python, Github, Vi
 * git init
 * git add .
 * git commit
-* git remote add origin <URL>
+* git remote add origin "<URL>"
 * git remote -v 
 * git pull remote origin
 * git push --set-upstream origin master
