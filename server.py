@@ -1,4 +1,7 @@
 import SocketServer
+import httphandler
+import os
+
 # coding: utf-8
 
 # Copyright 2013 Abram Hindle, Eddie Antonio Santos
@@ -17,7 +20,7 @@ import SocketServer
 #
 #
 # Furthermore it is derived from the Python documentation examples thus
-# some of the code is Copyright © 2001-2013 Python Software
+# some of the code is Copyright (C) 2001-2013 Python Software
 # Foundation; All Rights Reserved
 #
 # http://docs.python.org/2/library/socketserver.html
@@ -26,21 +29,35 @@ import SocketServer
 
 # try: curl -v -X GET http://127.0.0.1:8080/
 
+SITE_ROOT = "www"
 
 class MyWebServer(SocketServer.BaseRequestHandler):
     
     def handle(self):
         self.data = self.request.recv(1024).strip()
         print ("Got a request of: %s\n" % self.data)
+
+        http_request = httphandler.HTTPRequest(self.data, SITE_ROOT)
+        print(http_request.URI_path)
+
+
+
         self.request.sendall("OK")
+
 
 if __name__ == "__main__":
     HOST, PORT = "localhost", 8080
 
-    SocketServer.TCPServer.allow_reuse_address = True
-    # Create the server, binding to localhost on port 8080
-    server = SocketServer.TCPServer((HOST, PORT), MyWebServer)
+    try:
+        SocketServer.TCPServer.allow_reuse_address = True
+        # Create the server, binding to localhost on port 8080
+        server = SocketServer.TCPServer((HOST, PORT), MyWebServer)
+        print("Starting HTTP Server on PORT: %s\r\n" % PORT)
 
-    # Activate the server; this will keep running until you
-    # interrupt the program with Ctrl-C
-    server.serve_forever()
+        # Activate the server; this will keep running forever
+        server.serve_forever()
+
+    except KeyboardInterrupt:
+        # Interrupt the program with Ctrl-C and close server.
+        print("\r\nClosing Server with ^C\r\n")
+        server.socket.close()

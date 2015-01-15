@@ -31,4 +31,5 @@ Resources
 * Python Base HTTP Module (https://docs.python.org/2/library/basehttpserver.html) -
 Note this cannot be used in the structure of the assignment (we are building our own 
 web server)
+* Python OS Documentation (https://docs.python.org/2/library/os.html)
 * Python Socket Server Documentation (https://docs.python.org/2/library/socketserver.html)
