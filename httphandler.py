@@ -1,5 +1,6 @@
 # coding: utf-8
 import os
+import time
 
 # Copyright 2015 Daniel Phan
 # 
@@ -36,9 +37,6 @@ MINE_TYPES = {
 class HTTPRequest:
     # Process the server request into relevant HTTP request fields
     def __init__(self, data, site_root):
-        self.HTTP_method = ""
-        self.HTTP_path = ""
-        self.HTTP_type = ""
         self.response = 0
 
         # Only need the first line of the request
@@ -49,13 +47,16 @@ class HTTPRequest:
             if self.HTTP_path == "/":
                 self.HTTP_path = "/index.html"
 
-            # Security checking test
+            # Catch for 'security' check to throw 404 error
             elif '/../' in self.HTTP_path:
                 self.response = 404 
 
         except IndexError as e:
+            # Catch data parsing errors and cause a 404 error
+            self.response = 404
             print(e)
 
+        # Find absolute file path
         self.abs_file_path = os.path.realpath(site_root + self.HTTP_path)
 
 class HTTPResponse:
@@ -68,7 +69,7 @@ class HTTPResponse:
             self.response = http_request.response
 
     def ResponseChecker(self, file_path):
-        # Trival case to handle security test
+        # Trival case to handle security test 
         if self.response == 404:
             return 404
 
@@ -88,7 +89,8 @@ class HTTPResponse:
         if not os.path.exists(self.abs_file_path):
             return 404
 
-        # Handle /deep/ case
+        # Handle /deep/ case with redirect (Discussed on discussion fourms by Dr Hindle)
+        # (https://eclass.srv.ualberta.ca/mod/forum/discuss.php?d=441938)  
         if os.path.isdir(self.abs_file_path):
             return 302
 
@@ -97,10 +99,10 @@ class HTTPResponse:
 
     def MakeResponse(self):
         response_num = self.ResponseChecker(self.abs_file_path)
-        mine_type = self.getMineType(self.abs_file_path)
-        header = self.HTTPHeaderCreator(response_num, mine_type)
 
         if response_num == 200:
+            mine_type = self.getMineType(self.abs_file_path)
+            header = self.HTTPHeaderCreator(response_num, mine_type)
             site_file = open(self.abs_file_path, 'rb')
             site_body = site_file.read()
             return header + "\r\n" + site_body + "\r\n"
@@ -111,10 +113,15 @@ class HTTPResponse:
                 deeper_path = self.abs_file_path + "/"
 
             deeper_path = deeper_path + "index.html"
+            mine_type = self.getMineType(deeper_path)
+            header = self.HTTPHeaderCreator(response_num, mine_type)
 
             site_file = open(deeper_path, 'rb')
             site_body = site_file.read()
             return header + "\r\n" + site_body + "\r\n"
+
+        mine_type = self.getMineType(self.abs_file_path)
+        header = self.HTTPHeaderCreator(response_num, mine_type)
 
         if response_num == 404:
             return header + "\r\n" + "404: Not Found\r\n"
@@ -125,7 +132,7 @@ class HTTPResponse:
         self.file_type = file_path.split('.')[-1]
 
         if self.file_type in MINE_TYPES:
-            # UTF-8 encoding for html files
+            # UTF-8 encoding for HTML files
             if self.file_type == "html":
                 return MINE_TYPES[self.file_type] + "; charset=UTF-8"
 
@@ -137,6 +144,27 @@ class HTTPResponse:
             print (self.file_type)
             return "text/html" + "; charset=UTF-8"
 
+    # date_time_Header was taken from the python library BaseHTTPServer
+    # (https://hg.python.org/cpython/file/2.7/Lib/BaseHTTPServer.py) from
+    # the function date_time_string to input the correct date.
+    def date_time_Header(self, timestamp=None):
+        weekdayname = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+
+        monthname = [None,
+                 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
+        if timestamp is None:
+            timestamp = time.time()
+
+        year, month, day, hour, minute, seconds, weekday, year_day, is_daylightsavings = time.gmtime(timestamp)
+
+        date_header = "%s, %02d %3s %4d %02d:%02d:%02d GMT" % (
+            weekdayname[weekday], day, monthname[month], 
+            year, hour, minute, seconds)
+
+        return date_header
+
     def HTTPHeaderCreator(self, response, mine_type, redirected_url=None):
         # Header format follows example found in HTTP lecutre notes (Part 1 and 2)
         # and follows guide lines
@@ -146,10 +174,9 @@ class HTTPResponse:
         if response in HTTP_RESPONSES:
             header = "%s %d %s\r\n" %("HTTP/1.1", response, HTTP_RESPONSES[response])
 
-            # Extra line for redirect to access \deeper addressed by Dr. Hindle on
-            # discussion fourms (https://eclass.srv.ualberta.ca/mod/forum/discuss.php?d=441938)    
+            # /deep/ case returns 200 OK!, found on not-free-tests.py
             if response == 302:
-                header = "%s %d Not Found!\r\n" %("HTTP/1.1", 200)
+                header = "%s %d %s\r\n" %("HTTP/1.1", 200, HTTP_RESPONSES[200])
         else:
             # Use 501 error for cases not covered in HTTP_RESPONSES
             print("HTTP_RESPONSES Not Covered")
@@ -157,9 +184,10 @@ class HTTPResponse:
             header = "%s %d %s\r\n" %("HTTP/1.1", 501, HTTP_RESPONSES[501])
 
         header += "Connection: close\r\n"
-        header += "Server: CMPUT404\r\n"
+        header += "Server: CMPUT410\r\n"
         header += "Accept-Ranges: bytes\r\n"
         header += "Content-Type: " + mine_type + "\r\n"
+        header += "Date: " + self.date_time_Header() + "\r\n"
         return header
 
 

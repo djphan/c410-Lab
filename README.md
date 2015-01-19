@@ -11,6 +11,9 @@ CMPUT 410 Assignment for the Webserver is completed by Daniel Phan. Copyright 20
 The assignment files made by myself will be licensed under Apache 2. A
 copy has been provided in the files.
 
+Extras?
+=====
+* Consider using the mimetool/email library
 
 Contributors / Licensing
 ========================
