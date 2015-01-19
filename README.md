@@ -33,6 +33,7 @@ compatible) http://docs.python.org/2/library/socketserver.html
 Resources
 =========
 * ACME Systems: HTTP Server Example (http://www.acmesystems.it/python_httpserver)
+* HTTP Protocol (http://tools.ietf.org/html/rfc2616#section-6)
 * Python Base HTTP Module (https://docs.python.org/2/library/basehttpserver.html) -
 Note this cannot be used in the structure of the assignment (we are building our own 
 web server)
