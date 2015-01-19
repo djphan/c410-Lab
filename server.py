@@ -1,8 +1,7 @@
+# coding: utf-8
 import SocketServer
 import httphandler
 import os
-
-# coding: utf-8
 
 # Copyright 2013 Abram Hindle, Eddie Antonio Santos
 # 
@@ -37,13 +36,11 @@ class MyWebServer(SocketServer.BaseRequestHandler):
         self.data = self.request.recv(1024).strip()
         print ("Got a request of: %s\n" % self.data)
 
+        # ACTIONS: Make request, Process Response, Send Response
         http_request = httphandler.HTTPRequest(self.data, SITE_ROOT)
-        print(http_request.URI_path)
-
-
-
-        self.request.sendall("OK")
-
+        site_content_path = os.path.realpath(SITE_ROOT)
+        http_response = httphandler.HTTPResponse(site_content_path, http_request) 
+        self.request.sendall(http_response.MakeResponse())
 
 if __name__ == "__main__":
     HOST, PORT = "localhost", 8080
