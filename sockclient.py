@@ -37,12 +37,16 @@ def sendSocketMessage(s, message = 'GET / HTTP/1.1\r\n\r\n'):
 def recieveSocketMessage(s):
     reply = s.recv(4096)
     print(reply)
+	return reply
 
 if __name__ == "__main__":
 
     s = makeSocket()
     connectHost(s, '', 8889)
+	while 1:
+		data = recieveSocketMessage(s)
+		
 
     # Adjust sending and recieving socket message.
     #sendSocketMessage(s, 'hi')
-    #recieveSocketMessage(s)
+    #
