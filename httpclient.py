@@ -36,8 +36,13 @@ class HTTPClient(object):
     #def get_host_port(self,url):
 
     def connect(self, host, port):
-        # use sockets!
-        return None
+        try:
+            remote_ip = socket.gethostbyname(host)
+            print ('IP Address of ' + str(host) + 'is: ' + remote_ip)
+
+        except socket.gaierror:
+            print ('Could not resolve host name')
+            sys.exit()
 
     def get_code(self, data):
         return None
