@@ -21,5 +21,5 @@ compatible) http://docs.python.org/2/library/socketserver.html
 
 Resources
 ===
-
+* HTTP Client Library (https://docs.python.org/3.1/library/http.client.html)
 * Urllib Python Library (https://docs.python.org/2/library/urllib.html)
