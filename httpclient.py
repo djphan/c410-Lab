@@ -147,9 +147,9 @@ class HTTPClient(object):
         message = command + ' ' + path +  ' ' + 'HTTP/1.1\r\n'
         message += 'Host: ' + host + '\r\n'
    
-        if command =="POST":
+        if command == "POST":
             message += 'Content-Type: application/x-www-form-urlencoded\r\n'
-            message += 'Content-Length: ' +str(len(urllib.urlencode(args))) + '\r\n'
+            message += 'Content-Length: ' + str(len(urllib.urlencode(args))) + '\r\n'
 
         message = message + '\r\n'
 
@@ -158,8 +158,11 @@ class HTTPClient(object):
 
 
     def GET(self, url, args=None):
-        host = self.findHostName(url)
-        sock_connection = self.connect(host, 80)
+        host = self.findHostName(url).split(":")
+        if len(host) == 2:
+            sock_connection = self.connect(host[0], int(host[1]))
+        else:
+            sock_connection = self.connect(str(host[0]), 80)
 
         
         if sock_connection == None:
@@ -183,8 +186,11 @@ class HTTPClient(object):
         return HTTPRequest(code, body)
 
     def POST(self, url, args=None):
-        host = self.findHostName(url)
-        sock_connection = self.connect(host, 80)
+        host = self.findHostName(url).split(":")
+        if len(host) == 2:
+            sock_connection = self.connect(host[0], int(host[1]))
+        else:
+            sock_connection = self.connect(str(host[0]), 80)
 
         if sock_connection == None:
             code = self.get_code(None)
@@ -194,17 +200,20 @@ class HTTPClient(object):
         try:
             send_message = self.buildSendMessage('GET', url, args)
             sock_connection.sendall(send_message)
+
         except socket.error:
             print('Sending Socket Message Failed. Exiting.')
             sys.exit(1)
 
         return_message = self.recvall(sock_connection)
+        print(return_message)
 
         code = self.get_code(return_message)
         body = self.get_body(return_message)
+        print(body)
         return HTTPRequest(code, body)
 
-    def command(self, url, command="GET", args=None):
+    def command(self, url, command="POST", args=None):
         if (command == "POST"):
             return self.POST( url, args )
             sys.exit()
@@ -221,10 +230,10 @@ if __name__ == "__main__":
     elif (len(sys.argv) == 3):
         HTTPResponse = client.command(sys.argv[2], sys.argv[1])
         print HTTPResponse
-        print HTTPResponse.code
-        print HTTPResponse.body
+        #print HTTPResponse.code
+        #print HTTPResponse.body
     else:
         HTTPResponse = client.command(sys.argv[1], command) 
         print HTTPResponse
-        print HTTPResponse.code
-        print HTTPResponse.body   
+        #print HTTPResponse.code
+        #print HTTPResponse.body   
