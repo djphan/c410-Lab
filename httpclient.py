@@ -38,8 +38,6 @@ class HTTPRequest(object):
         self.body = body
 
 class HTTPClient(object):
-    #def get_host_port(self,url):
-
     def makeSocket(self):
         #print('Making Socket...')
         try:
@@ -69,14 +67,15 @@ class HTTPClient(object):
 
     def get_code(self, data=None):
         if data:
+            # Get the code
             code = int(data.splitlines()[0].split()[1])
-            #print(code)
             return code
         else:
             return 404
 
     def get_headers(self, data=None):        
         if data:
+            # Get headers
             data_split = data.split('\r\n')
             data_split
             header = ""
@@ -146,16 +145,20 @@ class HTTPClient(object):
 
         host = parsed_url.netloc
 
+        # Required Lines
         message = command + ' ' + path +  ' ' + 'HTTP/1.1\r\n'
         message += 'Host: ' + host + '\r\n'
    
         if command == "POST":
-            message += 'Content-Type: application/x-www-form-urlencoded\r\n'
-            message += 'Content-Length: ' + str(len(urllib.urlencode(args))) + '\r\n'
+            # If args are passed send content.
+            if args:
+                message += 'Content-Type: application/x-www-form-urlencoded\r\n'
+                message += 'Content-Length: ' + str(len(urllib.urlencode(args))) + '\r\n'
+                message += '\r\n' 
+                message += str(urllib.urlencode(args))
 
-        message = message + '\r\n'
-
-        print(message)
+        message += '\r\n' 
+        #print(message)
         return message
 
 
@@ -165,13 +168,11 @@ class HTTPClient(object):
             sock_connection = self.connect(host[0], int(host[1]))
         else:
             sock_connection = self.connect(str(host[0]), 80)
-
         
         if sock_connection == None:
             code = self.get_code(None)
             body = ""
             return HTTPRequest(code, body)
-
 
         try:
             send_message = self.buildSendMessage("GET", url, args)
@@ -182,10 +183,11 @@ class HTTPClient(object):
             sys.exit(1)
 
         return_message = self.recvall(sock_connection)
-
+        print(return_message)
         code = self.get_code(return_message)
         body = self.get_body(return_message)
-        return HTTPRequest(code, body)
+
+        return HTTPRequest(code,body)
 
     def POST(self, url, args=None):
         host = self.findHostName(url).split(":")
@@ -200,7 +202,7 @@ class HTTPClient(object):
             return HTTPRequest(code, body)
 
         try:
-            send_message = self.buildSendMessage('GET', url, args)
+            send_message = self.buildSendMessage('POST', url, args)
             sock_connection.sendall(send_message)
 
         except socket.error:
@@ -211,16 +213,15 @@ class HTTPClient(object):
 
         code = self.get_code(return_message)
         body = self.get_body(return_message, args)
+
         return HTTPRequest(code, body)
 
     def command(self, url, command="POST", args=None):
         if (command == "POST"):
             return self.POST( url, args )
-            sys.exit()
         else:
             return self.GET( url, args )
-            sys.exit()
-    
+
 if __name__ == "__main__":
     client = HTTPClient()
     command = "GET"
@@ -232,8 +233,10 @@ if __name__ == "__main__":
         print HTTPResponse
         #print HTTPResponse.code
         #print HTTPResponse.body
+        #sys.exit(1)
     else:
         HTTPResponse = client.command(sys.argv[1], command) 
         print HTTPResponse
         #print HTTPResponse.code
         #print HTTPResponse.body   
+        #sys.exit(1)

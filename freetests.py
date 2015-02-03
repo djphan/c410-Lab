@@ -130,6 +130,7 @@ class TestHTTPClient(unittest.TestCase):
         self.assertTrue(req != None, "None Returned!")
         self.assertTrue(req.code == 404)
 
+
     def test404POST(self):
         '''Test against 404 errors'''
         MyHTTPHandler.post = nothing_available
