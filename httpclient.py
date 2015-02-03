@@ -77,7 +77,8 @@ class HTTPClient(object):
 
     def get_headers(self, data=None):        
         if data:
-            data_split = data.splitlines()
+            data_split = data.split('\r\n')
+            data_split
             header = ""
             counter = 1
             for i in data_split:
@@ -92,10 +93,11 @@ class HTTPClient(object):
         else:
             return None
 
-    def get_body(self, data=None):
+    def get_body(self, data=None, args=None):
         if data:
-            data_split = data.splitlines()
+            data_split = data.split('\r\n')
             counter, header = self.get_headers(data)
+
             body = ""
 
             for i in data_split:
@@ -206,11 +208,9 @@ class HTTPClient(object):
             sys.exit(1)
 
         return_message = self.recvall(sock_connection)
-        print(return_message)
 
         code = self.get_code(return_message)
-        body = self.get_body(return_message)
-        print(body)
+        body = self.get_body(return_message, args)
         return HTTPRequest(code, body)
 
     def command(self, url, command="POST", args=None):
