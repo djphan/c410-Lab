@@ -6,10 +6,16 @@
     </head>
 
 
-    {% block body %}
+    <style>
+        table, th, td{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+
     <body>
-        <form action ="" method=post>
-            <p><b><u>Catagory:</u> </b> <input type=text size=30 name=catagory></p>
+        <form method="post">
+            <p><b><u>Catagory:</u> </b> <input type=text size=30 name=category></p>
             <p><b><u>Priority:</u> </b> <input type=text size=30 name=priority></p>
             <p><b><u>Description:</u> </b> 
                 <input type=text size=30 name=description> </p>
@@ -20,18 +26,30 @@
         <br/>
         <p><b><u> To-Do List! </u></b></p>
  
-        <table border="1" cellpadding="10">
-            <tbody>
-            {% for rowid in tasks %}
-                <td>{{ tasks['category'][rowid] }}</td>
-                <td>{{ tasks['priority'][rowid] }}</td>
-                <td>{{ tasks['description'][rowid] }}</td>
+        <div class="table">
+            <table class ="table table-striped">
+                <thead>
+                    <tr>
+                        <td>Category</td>
+                        <td>Priority</td>
+                        <td>Description</td>
+                    </tr>
+                </thead>
 
-            {% endfor %}
-            </tbody>    
+                <tbody>
+                    {% for task in tasks %}
+                    <tr>
+                        <td>{{ task.category }}</td>
+                        <td>{{ task.priority }}</td>
+                        <td>{{ task.description }}</td>
+                    </td>
+                    {% endfor %}
+
+                </tbody>
+            </table> 
+        </div>
+
 
     </body>
-    {% endblock %}
-
 
 </html>

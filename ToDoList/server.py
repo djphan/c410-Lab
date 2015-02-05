@@ -28,14 +28,15 @@ def closeConnect(exception):
 # DB Query Methods
 def query_db(query, args=(), one=False):
     cur = connect().cursor()
-    cur.execute(query,args)
+    cur.execute(query, args)
     r = cur.fetchall()
     cur.close()
     return (r[0] if r else None) if one else r
     
 # Task add
-def add_task(tasks):
-    query_db("insert into todolist(category, priority, description) values(? ? ?)", tasks, one=True)
+def add_task(catagory, priority, description):
+    query_db ("insert into todolist(category, priority, description) values(?, ?, ?)", 
+                (catagory, priority, description), one=True)
     connect().commit();
 
 """
@@ -45,13 +46,13 @@ def print_tasks():
         print ('Tasks: %s' % tasks['category'])
     print ("%d total tasks" %len(tasks))
 """
-    
-def remove_task(rowid):
+ 
+"""   
+def remove_task(task):
     query_db("delete from todolist where rowid=?",rowid, one=True)
     connect().commit();
+"""
 
-def cols():
-    return ["category","priority","description"]
 
 """
 @app.route('/')
@@ -75,24 +76,19 @@ def delete():
 
 @app.route('/tasks',methods=["GET","POST"])
 def tasks(name=None):
-	# Post
+    # Post
     if request.method == "POST":
-        form = request.form
-        try: 
-            formPriority = int(form['priority'])
-            if formPriority < 0:
-                raise Exception
-        except:
-            return "Bad Priority"
-                
-        task = (form['category'], form['priority'], form['description'])  
-        add_task(task)
+        category = request.form['category']
+        priority = request.form['priority']
+        description = request.form['description']
+
+        add_task(category, priority, description)
         return redirect(url_for('tasks'))
 
     # Get 
     elif request.method == "GET":
-       tasks = query_db("select rowid,* from tasks order by priority DESC");
-       return render_template('index.html', name=name, cols=cols(), tasks=tasks)
+       tasks = query_db("select * from todolist order by priority DESC")
+       return render_template('index.html', tasks=tasks)
 
 if __name__ == "__main__":
     app.debug = True
