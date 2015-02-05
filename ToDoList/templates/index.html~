@@ -20,13 +20,19 @@
         <br/>
         <p><b><u> To-Do List! </u></b></p>
 
+         
         <table border="1" cellpadding="10">
             <tbody>
+            {% for rowid in tasks %}
+                <td>{{ tasks['category'][rowid] }}</td>
+                <td>{{ tasks['priority'][rowid] }}</td>
+                <td>{{ tasks['description'][rowid] }}</td>
 
+            {% endfor %}
             </tbody>    
 
     </body>
-    {% endblock}
+    {% endblock %}
 
 
 </html>

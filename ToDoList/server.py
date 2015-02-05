@@ -18,7 +18,8 @@ def connect():
         conn.row_factory = sqlite3.Row
     return conn
 
-def closeConnect():
+@app.teardown_appcontext
+def closeConnect(exception):
     global conn
     if conn is not None:
         conn.close()
@@ -59,6 +60,12 @@ def welcome():
     text = '<h1> Dan Flask ToDo List Application </h1>'
     return text
 """
+
+# Add redirection to tasks
+@app.route('/')
+def index():
+    return redirect(url_for('tasks'))
+
 
 @app.route('/tasks/delete',methods=["POST"])
 def delete():
