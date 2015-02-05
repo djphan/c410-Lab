@@ -1,0 +1,9 @@
+drop table if exists todolist;
+
+create table todolist (
+    rowid INT primary key autoincrement,
+	category text,
+	priority INT,
+	description text 
+
+);

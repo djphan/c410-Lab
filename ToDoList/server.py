@@ -3,48 +3,62 @@ import os
 import sqlite3
 from flask import Flask, request, session, g, redirect, url_for, abort, \
      render_template, flash
-#conn = sqlite3.connect('pylab4.db')
-
 
 # Create Application
 app = Flask(__name__)
-conn = None
 app.config.from_object(__name__)
+db = 'todolist.db'
+conn = None
 
-def get_connection():
+# Connection Methods
+def connect():
     global conn
     if conn is None:
-        conn = sqlite3.connect('pylab4.db')
+        conn = sqlite3.connect(db)
         conn.row_factory = sqlite3.Row
     return conn
 
-def close_connection():
+def closeConnect():
     global conn
     if conn is not None:
         conn.close()
         conn = None
 
+# DB Query Methods
 def query_db(query, args=(), one=False):
-    cur = get_conn().cursor()
+    cur = connect().cursor()
     cur.execute(query,args)
     r = cur.fetchall()
     cur.close()
     return (r[0] if r else None) if one else r
     
-def add_task(task):
-    query_db("insert into tasks(category,priority,description) values(?,?,?)",task, one=True)
-    get_conn().commit();
+# Task add
+def add_task(tasks):
+    query_db("insert into todolist(category, priority, description) values(? ? ?)", tasks, one=True)
+    connect().commit();
+
+"""
+def print_tasks():
+    tasks = query_db('select * from todolist')
+    for task in tasks:
+        print ('Tasks: %s' % tasks['category'])
+    print ("%d total tasks" %len(tasks))
+"""
     
 def remove_task(rowid):
-    query_db("delete from tasks where rowid=?",rowid, one=True)
-    get_conn().commit();
+    query_db("delete from todolist where rowid=?",rowid, one=True)
+    connect().commit();
 
 def cols():
     return ["category","priority","description"]
 
+"""
 @app.route('/')
-def hello_world():
-    return 'Hello, World!'
+def welcome():
+    #text = '<title>Dan Flask ToDo List Application</title>'
+    text = '<h1> Dan Flask ToDo List Application </h1>'
+    return text
+"""
 
 @app.route('/tasks/delete',methods=["POST"])
 def delete():
@@ -54,36 +68,24 @@ def delete():
 
 @app.route('/tasks',methods=["GET","POST"])
 def tasks(name=None):
+	# Post
     if request.method == "POST":
         form = request.form
         try: 
             formPriority = int(form['priority'])
-            if formPriority > 100 or formPriority < 0:
+            if formPriority < 0:
                 raise Exception
         except:
-            return "Bad priority"
+            return "Bad Priority"
                 
-        task = (form['category'],form['priority'],form['description'])  
+        task = (form['category'], form['priority'], form['description'])  
         add_task(task)
         return redirect(url_for('tasks'))
 
-    #get 
+    # Get 
     elif request.method == "GET":
-        tasks = query_db("select rowid,* from tasks order by priority DESC");
-        return render_template('main.html', name=name, cols=cols(),tasks=tasks)
-
-'''@app.route('/task1',methods=["GET","POST"])
-def task():
-    #post
-    if request.method == "POST":
-        category = request.form['category']
-        tasks.append({'category': category})
-        return redirect(url_for('task'))
-    #get 
-    elif request.method == "GET":
-        cols = ["category","priority","description"]
-        return render_template('main.html',cols=cols())
-'''     
+       tasks = query_db("select rowid,* from tasks order by priority DESC");
+       return render_template('index.html', name=name, cols=cols(), tasks=tasks)
 
 if __name__ == "__main__":
     app.debug = True

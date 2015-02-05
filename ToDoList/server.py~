@@ -1,0 +1,92 @@
+# Follows the tutorial in Flask
+import os
+import sqlite3
+from flask import Flask, request, session, g, redirect, url_for, abort, \
+     render_template, flash
+
+# Create Application
+app = Flask(__name__)
+app.config.from_object(__name__)
+db = 'todolist.db'
+conn = None
+
+# Connection Methods
+def connect():
+    global conn
+    if conn is None:
+        conn = sqlite3.connect(db)
+        conn.row_factory = sqlite3.Row
+    return conn
+
+def closeConnect():
+    global conn
+    if conn is not None:
+        conn.close()
+        conn = None
+
+# DB Query Methods
+def query_db(query, args=(), one=False):
+    cur = connect().cursor()
+    cur.execute(query,args)
+    r = cur.fetchall()
+    cur.close()
+    return (r[0] if r else None) if one else r
+    
+# Task add
+def add_task(tasks):
+    query_db("insert into todolist(category, priority, description) values(? ??)", tasks, one=True)
+    connect().commit();
+
+"""
+def print_tasks():
+    tasks = query_db('select * from todolist')
+    for task in tasks:
+        print ('Tasks: %s' % tasks['category'])
+    print ("%d total tasks" %len(tasks))
+"""
+    
+def remove_task(rowid):
+    query_db("delete from todolist where rowid=?",rowid, one=True)
+    connect().commit();
+
+def cols():
+    return ["category","priority","description"]
+
+"""
+@app.route('/')
+def welcome():
+    #text = '<title>Dan Flask ToDo List Application</title>'
+    text = '<h1> Dan Flask ToDo List Application </h1>'
+    return text
+"""
+
+@app.route('/tasks/delete',methods=["POST"])
+def delete():
+    rowid = request.form['id']  
+    remove_task(rowid)
+    return redirect(url_for('tasks'))
+
+@app.route('/tasks',methods=["GET","POST"])
+def tasks(name=None):
+	# Post
+    if request.method == "POST":
+        form = request.form
+        try: 
+            formPriority = int(form['priority'])
+            if formPriority < 0:
+                raise Exception
+        except:
+            return "Bad Priority"
+                
+        task = (form['category'], form['priority'], form['description'])  
+        add_task(task)
+        return redirect(url_for('tasks'))
+
+    # Get 
+    elif request.method == "GET":
+       tasks = query_db("select rowid,* from tasks order by priority DESC");
+       return render_template('index.html', name=name, cols=cols(), tasks=tasks)
+
+if __name__ == "__main__":
+    app.debug = True
+    app.run()
