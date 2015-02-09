@@ -7,6 +7,10 @@ body {
     background-attachment: fixed;
     background-image: url("../img/readingbook.jpg");
 
+    text-indent: 4%;
+    margin-right: 10%;
+    margin-left: 10%;
+    text-align: center; 
     font-family: 'Oxygen', san-serif;
 }
 
@@ -14,11 +18,18 @@ h1 {
     text-align: center;
     color:white;
     background-color: rgba(21, 21, 21, 0.8);
-
+    margin-right: 0%;
+    margin-left: 0%;
     border-radius: 8px;
     padding: 10px;  
 
 
+}
+
+table {
+    border-radius: 8px;
+    padding: 10px;  
+    background-color: rgba(21, 21, 21, 0.8);
 }
 
 h2 {
@@ -29,22 +40,62 @@ h2 {
     background-color: rgba(21, 21, 21, 0.8);
 }
 
+
+
 .subheaders {
     text-align: center;
-    color:white;
+    color:#03DBC2;
 
     border-radius: 8px;
     padding: 10px;  
     background-color: rgba(21, 21, 21, 0.8);
-
 }
+
+.orange {
+    color:orange;
+}
+
+/* Transcriber's notes */
+.transnote {
+    border-radius: 8px;
+    background-color:rgba(21, 21, 21, 0.8);
+    color:white;
+    font-size:smaller;
+}
+
+.transnote p {
+    text-indent:0;
+    text-align:center;
+    background-color:rgba(21, 21, 21, 0);
+ }
+
+ .ph1, .ph3 .ph4 {
+   text-align:center;
+   clear:both;
+   margin-left:3%; 
+   background-color:rgba(21, 21, 21, 0.8);}
+
+.ph1 {margin:2em auto 1em auto;text-align:center;
+      font-size:160%; line-height:150%;
+      color:orange;
+      background-color:rgba(21, 21, 21, 0.8);}
+
+.ph3 {margin:1em 3em 1em 3em;text-align:center;
+      font-size:120%; line-height:150%;
+      color:orange;
+      background-color:rgba(21, 21, 21, 0.8);}
+
+.ph4  {margin:0.51em 2em 0.49em 2em;
+      font-size:110%; line-height:150%;
+      color:#03DBC2;
+      background-color:rgba(21, 21, 21, 0.8);}
 
 h3 {
     color:#03DBC2;
 
     border-radius: 8px;
     padding: 10px;  
-    background-color: rgba(84, 84, 84, 0.8);
+    background-color: rgba(21, 21, 21, 0.8);
 }
 
 h4 {

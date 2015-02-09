@@ -25,7 +25,9 @@ main.css will be used to template the 3 Gutenberg Projects.
 
 All modifications have been denoted with an HTML comment.
 
-1. 
+1. For the content links, all links were chopped to #chapter##. This allows
+us to go to the chapter without going to the official page resource in
+the main Project Gutenberg site. 
 
 
 

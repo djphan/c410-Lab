@@ -30,11 +30,11 @@
 
 *** Requirements
 
-    - [ ] Theme paragraphs with CSS
-    - [ ] Theme header tags with CSS
+    - [X] Theme paragraphs with CSS
+    - [X] Theme header tags with CSS
     - [ ] Theme images and images captions with CSS
     - [X] Change the colour scheme to something aesthetically pleasing
-    - [ ] Apply 1 CSS file to 3 gutenberg documents.
+    - [X] Apply 1 CSS file to 3 gutenberg documents.
     - [ ] document in your README what modifications you had to make
       to the project gutenberg HTML files.
     - [ ] Take 3 screenshots of firefox running all of your pages that
