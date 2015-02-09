@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-attachment: fixed;
+    background-image: url("../img/readingbook.jpg");
+
+    font-family: 'Oxygen', san-serif;
+}
+
+h1 {
+    text-align: center;
+    color:white;
+    background-color: rgba(21, 21, 21, 0.8);
+
+    border-radius: 8px;
+    padding: 10px;  
+
+
+}
+
+h2 {
+    color:orange;
+
+    border-radius: 8px;
+    padding: 10px;  
+    background-color: rgba(21, 21, 21, 0.8);
+}
+
+.subheaders {
+    text-align: center;
+    color:white;
+
+    border-radius: 8px;
+    padding: 10px;  
+    background-color: rgba(21, 21, 21, 0.8);
+
+}
+
+h3 {
+    color:#03DBC2;
+
+    border-radius: 8px;
+    padding: 10px;  
+    background-color: rgba(84, 84, 84, 0.8);
+}
+
+h4 {
+    color:#03DBC2;
+
+    border-radius: 8px;
+    padding: 10px;  
+    background-color: rgba(84, 84, 84, 0.8);
+}
+
+a:link {
+    color: white;
+    text-decoration: none;
+
+}
+
+a:visited {
+    color: white;
+    text-decoration: none;
+}
+
+a:active {
+    color: orange;
+    text-decoration: none;
+}
+
+a:hover {
+    color: orange;
+    text-decoration: none;
+}
+
+p {
+    border-radius: 8px;
+    padding: 10px; 
+
+    background-color: rgba(211, 211, 211, 0.8);
+
+}
+
+pre {
+    border-radius: 8px;
+    padding: 5px;  
+    background-color: rgba(84, 84, 84, 0.8);
+
+    text-align: center;
+    color: #03DBC2;
+}

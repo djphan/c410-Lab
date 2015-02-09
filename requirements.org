@@ -33,7 +33,7 @@
     - [ ] Theme paragraphs with CSS
     - [ ] Theme header tags with CSS
     - [ ] Theme images and images captions with CSS
-    - [ ] Change the colour scheme to something aesthetically pleasing
+    - [X] Change the colour scheme to something aesthetically pleasing
     - [ ] Apply 1 CSS file to 3 gutenberg documents.
     - [ ] document in your README what modifications you had to make
       to the project gutenberg HTML files.

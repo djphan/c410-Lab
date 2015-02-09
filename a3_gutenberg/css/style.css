@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-attachment: fixed;
+    background-image: url("../img/readingbook.jpg");
+
+}
+
+a:link {
+    color: white;
+    text-decoration: none;
+
+}
+
+a:visited {
+    color: white;
+    text-decoration: none;
+}
+
+a:active {
+    color: orange;
+    text-decoration: none;
+}
+
+a:hover {
+    color: orange;
+    text-decoration: none;
+}
+
+h1 {
+    color:white;
+}
+
+h2 {
+    color:orange;
+}
+
+h3 {
+    color:orange;
+}
+
+h4 {
+    color:#03DBC2;
+}
+
+p {
+    padding: 12px;
+}
+
+pre {
+
+    color: #03DBC2;
+}
+
+.bookmarkbar {
+    position:static;
+    width: 150px;
+    padding: 15px;
+    margin: 10px;
+    height: 100%;
+    border-radius: 8px;
+
+    background-color: rgba(84, 84, 84, 0.8);
+    font-family: 'Oxygen', san-serif;
+    font-size: 11pt;
+    color:white;
+
+}
+
+.nav {
+    float left
+}
+
+.bookmarkbar ul {
+    list-style-type: none;
+    height: auto;  
+}
+
+.chapterhead {
+    color:orange;
+}
+
+.content {
+    position:absolute;
+    left:200px;
+    top: 10px;
+    padding: 10px;
+
+    font-family: 'Oxygen', san-serif;
+
+    color:white;
+
+}
+
+.contentbox {
+    border-radius: 8px;
+    padding: 10px;  
+    background-color: rgba(84, 84, 84, 0.8);  
+}
+
+.greenback {
+    border-radius: 15px;
+    background-color: #03DBC2;  
+}
+
+.author {
+    border-radius: 2px;
+    padding: 5px;
+    background-color: rgba(151, 139, 125, 0.3) ;
+
+    color:orange;
+    font-size:10pt;
+}
+
+.footer {
+    text-align: center;
+    padding: 5px;
+}
