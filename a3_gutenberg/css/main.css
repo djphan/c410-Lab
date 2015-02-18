@@ -3,13 +3,34 @@
     padding: 0;
 }
 
+.subheaders {
+    text-align: center;
+    color:#03DBC2;
+
+    border-radius: 8px;
+    padding: 10px;  
+    background-color: rgba(21, 21, 21, 0.8);
+}
+
+.block {
+    text-align: left;
+    color:white;
+    background-color: rgba(21, 21, 21, 0.8);
+}
+
+.orange {
+    color:orange;
+}
+
+.center {
+    text-align: center;
+}
+
+
 body {
     background-attachment: fixed;
-    background-image: url("../img/readingbook.jpg");
+    background-color:grey;
 
-    text-indent: 4%;
-    margin-right: 10%;
-    margin-left: 10%;
     text-align: center; 
     font-family: 'Oxygen', san-serif;
 }
@@ -29,6 +50,9 @@ h1 {
 table {
     border-radius: 8px;
     padding: 10px;  
+    margin-left: auto; 
+    margin-right: auto;
+
     background-color: rgba(21, 21, 21, 0.8);
 }
 
@@ -40,67 +64,18 @@ h2 {
     background-color: rgba(21, 21, 21, 0.8);
 }
 
-
-
-.subheaders {
-    text-align: center;
-    color:#03DBC2;
-
-    border-radius: 8px;
-    padding: 10px;  
-    background-color: rgba(21, 21, 21, 0.8);
-}
-
-.orange {
-    color:orange;
-}
-
-/* Transcriber's notes */
-.transnote {
-    border-radius: 8px;
-    background-color:rgba(21, 21, 21, 0.8);
-    color:white;
-    font-size:smaller;
-}
-
-.transnote p {
-    text-indent:0;
-    text-align:center;
-    background-color:rgba(21, 21, 21, 0);
- }
-
- .ph1, .ph3 .ph4 {
-   text-align:center;
-   clear:both;
-   margin-left:3%; 
-   background-color:rgba(21, 21, 21, 0.8);}
-
-.ph1 {margin:2em auto 1em auto;text-align:center;
-      font-size:160%; line-height:150%;
-      color:orange;
-      background-color:rgba(21, 21, 21, 0.8);}
-
-.ph3 {margin:1em 3em 1em 3em;text-align:center;
-      font-size:120%; line-height:150%;
-      color:orange;
-      background-color:rgba(21, 21, 21, 0.8);}
-
-.ph4  {margin:0.51em 2em 0.49em 2em;
-      font-size:110%; line-height:150%;
-      color:#03DBC2;
-      background-color:rgba(21, 21, 21, 0.8);}
-
 h3 {
     color:#03DBC2;
 
+    text-align: center;
     border-radius: 8px;
     padding: 10px;  
     background-color: rgba(21, 21, 21, 0.8);
 }
 
-h4 {
+h4, h5, h6 {
     color:#03DBC2;
-
+    text-align: center;
     border-radius: 8px;
     padding: 10px;  
     background-color: rgba(84, 84, 84, 0.8);
@@ -129,11 +104,32 @@ a:hover {
 
 p {
     border-radius: 8px;
-    padding: 10px; 
+    padding: 10px;
+    text-indent: 4%; 
 
-    background-color: rgba(211, 211, 211, 0.8);
+    text-align: left;
+    font-size: 12pt;
+    background-color: rgba(211, 211, 211, 0.99);
 
 }
+
+p.poem {
+    text-indent: 0%;
+    text-align: center;
+    font-size: small; 
+}
+
+.noindent {
+    text-indent:0%;   
+}
+
+hr { width: 33%;
+     margin-top: 2em;
+     margin-bottom: 2em;
+     margin-left: auto;
+     margin-right: auto;
+     clear: both;
+ }
 
 pre {
     border-radius: 8px;
@@ -142,4 +138,11 @@ pre {
 
     text-align: center;
     color: #03DBC2;
+}
+
+img {
+    border: 10px;
+    margin-top: 2em;
+    margin-bottom: 2em;
+
 }

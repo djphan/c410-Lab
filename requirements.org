@@ -79,12 +79,12 @@
     
 
 ** Restrictions
-   - [ ] Use Python 2.7
-   - [ ] Must run in the undergrad lab (Ubuntu 12.04)
-   - [ ] License your content properly (use a Creative Commons License
+   - [?] Use Python 2.7
+   - [X] Must run in the undergrad lab (Ubuntu 12.04)
+   - [X] License your content properly (use a Creative Commons License
      like CC-BY-ND or CC-BY-SA)
      - Put your name on it!
-   - [ ] If you borrow CSS, always cite the author and the source
+   - [X] If you borrow CSS, always cite the author and the source
 
 ** Recommendations
 
