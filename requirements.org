@@ -68,12 +68,12 @@
 
 *** Requirements
 
-    - [ ] 4 sections: who you are, your history, what you have to
+    - [X] 4 sections: who you are, your history, what you have to
       offer, important points about you
     - [ ] 1 Ugly CSS theme
-    - [ ] 1 good CSS theme
+    - [X] 1 good CSS theme
     - [ ] 2 HTML files, each with the same content but different CSS
-    - [ ] your photo (try to keep it professional)
+    - [X] your photo (try to keep it professional)
     - [ ] Take 2 screenshots of firefox running all of your pages that
       demonstrates your theme.
     

@@ -34,22 +34,19 @@ table {
 
 }
 
-
-
 .contact {
 	float: right;
 	position:absolute;
 	width:35%;
-	top: 5%;
+	top: 6%;
 	left:65%;
 }
-
 
 .skills {
 	float:right;
 	position:absolute;
 	width:35%;
-	top: 35%;
+	top: 37%;
 	left:65%;
 }
 
@@ -59,7 +56,6 @@ table {
 	width: 60%;
 	padding: 5pt;	
 }
-
 
 
 table {
