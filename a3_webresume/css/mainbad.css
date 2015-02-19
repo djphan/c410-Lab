@@ -1,0 +1,161 @@
+body {
+	background-image: url("../img/stars.gif");
+	color:white;
+	font-family: 'Oxygen', sans-serif;
+}
+
+
+h1 {
+	background-image: url("../img/flames.gif");
+	text-align: center;	
+}
+
+h3 {
+
+	color:red;
+	text-decoration: underline;
+}
+
+h4 {
+	margin: 0;
+	padding-left: 5pt;
+	color:red;
+}
+
+table {
+	padding: 0px; 
+	margin: 0px; 
+	border: 0;
+	border-collapse: collapse;
+	border-spacing: 0px;
+
+	font-size: 10pt;
+
+}
+
+@-webkit-keyframes thumb {
+	0% { -webkit-transform: scale(1); }
+	50% { -webkit-transform: scale(0.9); }
+	100% { -webkit-transform: scale(1); }
+}
+
+img:hover
+{
+	-webkit-animation-name: thumb;
+	-webkit-animation-duration: 200ms;
+	-webkit-transform-origin:50% 50%;
+	-webkit-animation-iteration-count: 2;
+	-webkit-animation-timing-function: linear;
+}
+
+a.href {
+	color:white;
+}
+
+a.href {
+	color:white;
+}
+
+
+
+.contact {
+	float: right;
+	position:absolute;
+	width:35%;
+	top: 6%;
+	left:65%;
+
+	border-radius: 10px;
+	background-color:rgba(100, 200, 444, 0.1);
+}
+
+.skills {
+	float:right;
+	position:absolute;
+	width:35%;
+	top: 37%;
+	left:65%;
+	border-stye:inset;
+	border-color: red;
+
+	border-radius: 10px;
+	background-color:rgba(100, 200, 444, 0.1);
+}
+
+.content {
+	position: relative;
+	float: left;
+	width: 60%;
+	padding: 5pt;
+
+	border-radius: 10px;
+	background-color:rgba(100, 200, 444, 0.1);	
+}
+
+
+table {
+	padding-left: 5pt;
+}
+
+tr { 
+	padding: 0px; 
+	margin: 0px; 
+	border: 0;
+}
+
+td {
+	padding: 5px; 
+	margin: 0px; 
+	border: 0;
+}
+
+img.icon {
+	display: block;
+
+	width: auto;
+	height: 20%;
+}
+
+img.face {
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	width: 15em;
+
+}
+
+ul {
+	list-style-type: none;
+}
+
+.mainlist {
+	list-style-type: disc;
+	color: pink;
+}
+
+.cardbar {
+	padding: 10px;
+	margin-right: 1%;
+
+	border-radius: 5px;
+	background-image: url("../img/rainbow.gif");
+}
+
+.bar {
+	padding: 10px;
+	background-image: url("../img/rainbow.gif");
+	color:black;
+	font-size: 14pt;
+}
+
+.footbar {
+	position:absolute;
+	bottom:0;
+	padding: 10px;
+	background-image: url("../img/rainbow.gif");
+	color:black;
+	font-size: 14pt;
+	text-align: center;
+}
+
+
