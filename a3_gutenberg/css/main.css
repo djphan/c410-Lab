@@ -98,7 +98,7 @@ a:active {
 }
 
 a:hover {
-    color: orange;
+    color: black;
     text-decoration: none;
 }
 
@@ -113,10 +113,9 @@ p {
 
 }
 
-p.poem {
-    text-indent: 0%;
-    text-align: center;
-    font-size: small; 
+.poem {
+    text-align: center; 
+    background-color: rgba(211, 211, 211, 0.9);
 }
 
 .noindent {
@@ -145,4 +144,19 @@ img {
     margin-top: 2em;
     margin-bottom: 2em;
 
+}
+
+figcaption {
+    color:#03DBC2;
+
+    text-align: center;
+    border-radius: 8px;
+    padding: 10px;  
+    background-color: rgba(21, 21, 21, 0.8);
+}
+.darkbackground { 
+    text-align: center;
+    border-radius: 8px;
+    padding: 10px;  
+    background-color: rgba(21, 21, 21, 0.8);
 }
