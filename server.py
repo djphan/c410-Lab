@@ -20,9 +20,8 @@
 # remember to:
 #     pip install flask
 
-
 import flask
-from flask import Flask, request
+from flask import Flask, request, send_from_directory, url_for, redirect
 import json
 app = Flask(__name__)
 app.debug = True
@@ -74,17 +73,41 @@ def flask_post_json():
 @app.route("/")
 def hello():
     '''Return something coherent here.. perhaps redirect to /static/index.html '''
-    return None
+    return send_from_directory('static', 'index.html')
 
 @app.route("/entity/<entity>", methods=['POST','PUT'])
 def update(entity):
     '''update the entities via this interface'''
-    return None
+
+    if request.method == "POST":
+        myEntity = request.form['entity']
+        myData = request.form['data']
+        myWorld.set(myEntity, myData)
+        return send_from_directory('static', 'index.html', world=myWorld)
+
+    elif request.method == "PUT":
+        myEntity = request.form['entity']
+        myKey = request.form['key']
+        myValue = request.form['value']
+
+        myWorld.update(myEntity, myKey, myValue)
+
+        return send_from_directory('static', 'index.html', world=myWorld)
+
+    return redirect(url_for("hello"))
 
 @app.route("/world", methods=['POST','GET'])    
 def world():
     '''you should probably return the world here'''
-    return None
+
+    if request.method == "POST":
+        theWorld = request.form['world']
+        return send_from_directory('static', 'index.html', world=theWorld)
+
+    elif request.method == "GET":
+        return send_from_directory('static', 'index.html', world=myWorld)
+
+    return redirect(url_for("hello"))
 
 @app.route("/entity/<entity>")    
 def get_entity(entity):
@@ -93,8 +116,9 @@ def get_entity(entity):
 
 @app.route("/clear", methods=['POST','GET'])
 def clear():
-    '''Clear the world out!'''
-    return None
+    # Call built in function and redirect back to index
+    myWorld.clear()
+    return send_from_directory('static', 'index.html', world=myWorld)
 
 if __name__ == "__main__":
     app.run()

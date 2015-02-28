@@ -41,13 +41,13 @@
 ** Requirements
 
    - [ ] Implement the AJAX Javascript parts in the HTML file static/index.htm
-   - [ ] Implement the webservice root
+   - [X] Implement the webservice root
    - [ ] Implement the webservice /entity/entity-name POST/PUT/GET API
    - [ ] Implement the webservice /world API
    - [ ] Implement the webservice /clear API
    - [ ] Use JSON or XML to communicate (no plain text!)
    - [ ] The webservice can pass all the tests in freetests.py
-   - [ ] The webservice can serve /static/index.html
+   - [x] The webservice can serve /static/index.html
    - [ ] static/index.html displays the current state of the webservice
    - [ ] static/index.html responds to clicks within 100ms on average
    - [ ] Make static/index.html images look nice
@@ -55,7 +55,7 @@
 
  
 ** Restrictions
-   - [ ] Use Python 2.7
+   - [X] Use Python 2.7
    - [ ] Must run in the undergrad lab (Ubuntu 12.04)
    - [ ] License your code properly (use an OSI approved license)
      - Put your name on it!
