@@ -21,7 +21,7 @@
 #     pip install flask
 
 import flask
-from flask import Flask, request, send_from_directory, url_for, redirect
+from flask import Flask, request, send_from_directory, url_for, redirect, jsonify
 import json
 app = Flask(__name__)
 app.debug = True
@@ -60,7 +60,7 @@ myWorld = World()
 
 # I give this to you, this is how you get the raw body/data portion of a post in flask
 # this should come with flask but whatever, it's not my project.
-def flask_post_json():
+def flask_post_json(request):
     '''Ah the joys of frameworks! They do so much work for you
        that they get in the way of sane operation!'''
     if (request.json != None):
@@ -78,47 +78,41 @@ def hello():
 @app.route("/entity/<entity>", methods=['POST','PUT'])
 def update(entity):
     '''update the entities via this interface'''
+    #Fixed to use Hindle's JSON functions
+    myData = flask_post_json(request)
 
     if request.method == "POST":
-        myEntity = request.form['entity']
-        myData = request.form['data']
-        myWorld.set(myEntity, myData)
-        return send_from_directory('static', 'index.html', world=myWorld)
+        myWorld.set(entity, myData)
 
     elif request.method == "PUT":
-        myEntity = request.form['entity']
-        myKey = request.form['key']
-        myValue = request.form['value']
+        for myKey, myValue in myData.iteritems():
+            myWorld.update(entity, myKey, myValue)
 
-        myWorld.update(myEntity, myKey, myValue)
-
-        return send_from_directory('static', 'index.html', world=myWorld)
-
-    return redirect(url_for("hello"))
+    # Return the world not redirect to page
+    return jsonify(myWorld.get(entity))
 
 @app.route("/world", methods=['POST','GET'])    
 def world():
     '''you should probably return the world here'''
 
     if request.method == "POST":
-        theWorld = request.form['world']
-        return send_from_directory('static', 'index.html', world=theWorld)
+        aWorld = flask_post_json(request)
+        print(aWorld)
+        return jsonify(myWorld.world())
 
     elif request.method == "GET":
-        return send_from_directory('static', 'index.html', world=myWorld)
-
-    return redirect(url_for("hello"))
+        return jsonify(myWorld.world())
 
 @app.route("/entity/<entity>")    
 def get_entity(entity):
     '''This is the GET version of the entity interface, return a representation of the entity'''
-    return None
-
+    return jsonify(** myWorld.get(entity))
+    
 @app.route("/clear", methods=['POST','GET'])
 def clear():
-    # Call built in function and redirect back to index
+    # Call built in function 
     myWorld.clear()
-    return send_from_directory('static', 'index.html', world=myWorld)
+    return jsonify(myWorld.world())
 
 if __name__ == "__main__":
     app.run()
