@@ -40,18 +40,18 @@
 
 ** Requirements
 
-   - [ ] Implement the AJAX Javascript parts in the HTML file static/index.htm
+   - [X] Implement the AJAX Javascript parts in the HTML file static/index.htm
    - [X] Implement the webservice root
    - [X] Implement the webservice /entity/entity-name POST/PUT/GET API
    - [X] Implement the webservice /world API
    - [X] Implement the webservice /clear API
-   - [ ] Use JSON or XML to communicate (no plain text!)
+   - [X] Use JSON or XML to communicate (no plain text!)
    - [X] The webservice can pass all the tests in freetests.py
    - [x] The webservice can serve /static/index.html
-   - [ ] static/index.html displays the current state of the webservice
-   - [ ] static/index.html responds to clicks within 100ms on average
-   - [ ] Make static/index.html images look nice
-   - [ ] implement anything marked XXX TODO: in static/index.html
+   - [X] static/index.html displays the current state of the webservice
+   - [X] static/index.html responds to clicks within 100ms on average
+   - [X] Make static/index.html images look nice
+   - [] implement anything marked XXX TODO: in static/index.html
 
  
 ** Restrictions

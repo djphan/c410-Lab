@@ -82,8 +82,15 @@ function getXMLHTTPRequest(url, callback) {
     xhr.send();
 }
 
+function randomColor() {
+    //Random Funcion
+    return '#' + (Math.floor(Math.random()*167772115)).toString(16);
+}
+
+
 //XXX: TODO Make this prettier!
 function drawCircle(context,entity) {
+
     with(context) {
         beginPath();              
         lineWidth = 3;
@@ -97,20 +104,26 @@ function drawCircle(context,entity) {
     }
 }
 
+
+
+
+
 function prepEntity(entity) {
     if (!entity["colour"]) {
-        entity["colour"] = "#FF0000";
+        entity["colour"] = '#FF0000';
     }
+
     if (!entity["radius"]) {
         entity["radius"] = 50;
     }
+
     return entity;
 }
 
 function clearFrame() {
     with(context) {
 	moveTo(0,0);
-	fillStyle = "#000";
+	fillStyle = "#080808";
 	fillRect(0,0,W,H);
     }
 
@@ -122,6 +135,8 @@ function renderFrame() {
     for (var key in world) {
         var entity = world[key];
         drawCircle(context,prepEntity(entity));
+
+
     }
 }
 
@@ -277,15 +292,18 @@ mouse = (function() {
 // Add the application specific mouse listeners!
 //XXX: TODO Make these prettier!
 mouse.mousedowners.push(function(x,y,clicked,e) {
-    addEntityWithoutName({'x':x,'y':y,'colour':'blue'});
+    var color = randomColor();
+    addEntityWithoutName({'x':x,'y':y,'colour': color});
 });
 
 mouse.mouseuppers.push(function(x,y,clicked,e) {
-    addEntityWithoutName({'x':x,'y':y,'colour':'red'});
+    var color = randomColor();
+    addEntityWithoutName({'x':x,'y':y,'colour': color});
 });
 
 mouse.mousedraggers.push(function(x,y,clicked,e) {
-    addEntityWithoutName({'x':x,'y':y,'colour':'green',
+    var color = randomColor();
+    addEntityWithoutName({'x':x,'y':y,'colour':color,
                           'radius':10});
 });
 
