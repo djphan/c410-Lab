@@ -22,9 +22,9 @@ def tags(request):
 	context = RequestContext(request)
 
 	# Get all tags 
-	tag = Tag.objects.all()
+	tags = Tag.objects.all()
 
-	return render_to_response('main/tags.html', {'tags': tags}, context)
+	return render_to_response('main/tags.html', {'tags': tags }, context)
 
 def tag(request, tag_name):
 	context = RequestContext(request)
@@ -32,7 +32,7 @@ def tag(request, tag_name):
 	link = the_tag.link_set.all()
 
 	return render_to_response('main/index.html', 
-			{'links': links, 'tag_name': '#' + tag_name}, context)
+			{'links': link, 'tag_name': '#' + tag_name}, context)
 
 def add_link(request):
 	context = RequestContext(request)
@@ -63,30 +63,4 @@ def add_link(request):
 			
 	return redirect(index)
 
-def display_tags(request):
-	context = RequestContext(request)
-	allTags = Tags.objects.all()
-	print(allTags)
 
-
-
-"""def add_tag(request):
-	context = RequestContext(request)
-
-	if request.method == 'POST':
-		form = TagForm(request.POST)
-
-		if Tag.objects.filter(name=form.name):
-			return index(request)
-
-		if form.is_valid():
-			form.save(commit=True)
-			return index(request)
-
-		else: 
-			print (form.errors)
-
-	else:
-		form = TagForm()
-
-	return render(request, 'main/index.html', {'form': form })"""
