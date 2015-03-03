@@ -1,9 +1,12 @@
-from django.shortcuts import render, render_to_response
+from django.shortcuts import render, render_to_response, redirect
 from django.template import RequestContext
-from django.shortcuts import redirect
+from django.core.exceptions import ObjectDoesNotExist, ValidationError
 
-from main.forms import TagForm, LinkForm
+from django.forms import URLField
+
 from main.models import Link, Tag
+
+error_flag = 0
 
 # Create your views here.
 def index(request):
@@ -33,37 +36,41 @@ def tag(request, tag_name):
 
 def add_link(request):
 	context = RequestContext(request)
+	error_flag = {}
 
 	if request.method == 'POST':
-		url = request.POST.get("url", "")
-		tags = request.POST.get("tags", "")
-		title = request.POST.get("title", "")
+		cur_url = request.POST.get("url", "")
+		cur_tags = request.POST.get("tags", "").split()
+		tag_list = []
 
-		form = LinkForm(request.POST)
+		cur_title = request.POST.get("title", "")
 
-		if Link.objects.filter(url=url):
-			print("URL exists in bookmarks")
-			return index(request)
+		try:
+			cur_url = URLField().clean(cur_url) 
+		except ValidationError:
+			error_flag['badurl'] = True 
+			
+		if error_flag == {}:
+			for items in cur_tags:
+				tag_list.append(Tag.objects.get_or_create(name=items)[0])
 
-		if form.is_valid():
-			form.url = url
-			form.title = title
-			form.tags = form.cleaned_data.get('tags')
+			bookLink = Link.objects.create(title=cur_title, url=cur_url)
 
-			form.save(commit=True)
-			return index(request)
-
-		else: 
-			print (form.errors)
-
-	else:
-		form = LinkForm()
-
-	return render(request, 'main/index.html', {'form': form })
-
+			# Must create object and add due to many to many constraint
+			for items in tag_list:
+				#print(items)
+				bookLink.tags.add(items)
+			
 	return redirect(index)
 
-def add_tag(request):
+def display_tags(request):
+	context = RequestContext(request)
+	allTags = Tags.objects.all()
+	print(allTags)
+
+
+
+"""def add_tag(request):
 	context = RequestContext(request)
 
 	if request.method == 'POST':
@@ -82,4 +89,4 @@ def add_tag(request):
 	else:
 		form = TagForm()
 
-	return render(request, 'main/index.html', {'form': form })
+	return render(request, 'main/index.html', {'form': form })"""
