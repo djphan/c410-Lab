@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 import flask
-from flask import Flask, request
+from flask import Flask, request, send_from_directory, jsonify, url_for, redirect 
 from flask_sockets import Sockets
 import gevent
 from gevent import queue
@@ -65,16 +65,31 @@ def set_listener( entity, data ):
     ''' do something with the update ! '''
 
 myWorld.add_set_listener( set_listener )
+
+def send_all_json(obj):
+    # REQUIRED????
+    send_all( json.dumps(obj) )
         
 @app.route('/')
 def hello():
     '''Return something coherent here.. perhaps redirect to /static/index.html '''
-    return None
+    return send_from_directory('static', 'index.html')
 
 def read_ws(ws,client):
     '''A greenlet function that reads from the websocket and updates the world'''
+    # CHECK THIS???
     # XXX: TODO IMPLEMENT ME
-    return None
+    try:
+        while True:
+            msg = ws.receive()
+            print "Web Socket recv: %s" % msg
+            if (msg is not None):
+                packet = json.loads(msg)
+                send_all_json( packet )
+            else:
+                break
+    except:
+        done
 
 @sockets.route('/subscribe')
 def subscribe_socket(ws):
@@ -84,7 +99,7 @@ def subscribe_socket(ws):
     return None
 
 
-def flask_post_json():
+def flask_post_json(request):
     '''Ah the joys of frameworks! They do so much work for you
        that they get in the way of sane operation!'''
     if (request.json != None):
@@ -97,23 +112,41 @@ def flask_post_json():
 @app.route("/entity/<entity>", methods=['POST','PUT'])
 def update(entity):
     '''update the entities via this interface'''
-    return None
+    #Fixed to use Hindle's JSON functions
+    myData = flask_post_json(request)
+
+    if request.method == "POST":
+        myWorld.set(entity, myData)
+
+    elif request.method == "PUT":
+        for myKey, myValue in myData.iteritems():
+            myWorld.update(entity, myKey, myValue)
+
+    # Return the world not redirect to page
+    return jsonify(myWorld.get(entity))
 
 @app.route("/world", methods=['POST','GET'])    
 def world():
     '''you should probably return the world here'''
-    return None
+    if request.method == "POST":
+        aWorld = flask_post_json(request)
+        return jsonify(myWorld.world())
+
+    elif request.method == "GET":
+        return jsonify(myWorld.world())
 
 @app.route("/entity/<entity>")    
 def get_entity(entity):
     '''This is the GET version of the entity interface, return a representation of the entity'''
-    return None
+    return jsonify(** myWorld.get(entity))
 
 
 @app.route("/clear", methods=['POST','GET'])
 def clear():
     '''Clear the world out!'''
-    return None
+    # Call built in function 
+    myWorld.clear()
+    return jsonify(myWorld.world())
 
 
 
