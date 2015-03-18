@@ -24,25 +24,65 @@
   </head> 
   <body bgcolor="white" height="100%" width="100%"> 
     <div id="debug"></div>
-    <canvas id="c" width="100%" height="100%" style="-webkit-tap-highlight-color: transparent;"></canvas> 
+    <canvas id="c" width="100%" height="100%" style="background: url(static/img/pond.png); -webkit-tap-highlight-color: transparent;"></canvas> 
 
     <script>
-      // Fix me
+    // Fix me
+
 var canvas = document.getElementById('c');
 var host = window.location.host;
 var context = canvas.getContext("2d");
 var W = canvas.width  = window.innerWidth-6;
 var H = canvas.height = window.innerHeight-50;
+var squirtle = new Image();
 var wscounter = 0;
 var socket;
+world = {};
+
+
+window.onload = function() {
+    squirtle.src = "static/img/squirtle.png";
+}
+
+
+
+// Taken from A4
+function sendJSONXMLHTTPRequest(url, objects, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState==4) {
+            try {
+                if (xhr.status==200) {
+                    //XXX: parse some JSON from the request!
+                    var jsonData = JSON.parse(xhr.responseText);
+
+                    //XXX: Pass the data to the callback!
+                    callback();
+                }
+            } 
+            catch(e) {
+                alert('JSON XMLHTTP Request Error: ' + e.name);
+            }
+        }
+    };
+    //XXX: POST to a URL
+    //XXX: set the mimetype and the accept headers!
+    // Remember to use application/json !
+    xhr.open("POST", url);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.setRequestHeader('Accept', 'application/json');
+    xhr.send(JSON.stringify(objects));
+ 
+}
+
+
 
 function debug(str) {
     var debugDiv = document.getElementById('debug');
     debugDiv.innerHTML = "" + str;
 }
-debug("Test");
-
-world = {};
+// Don't need to load
+    debug("Test");
 
 //XXX: TODO Make this prettier!
 function drawCircle(context,entity) {
@@ -51,11 +91,26 @@ function drawCircle(context,entity) {
         lineWidth = 3;
         var x = entity["x"];
         var y = entity["y"];
-        //moveTo(x,y);
-        fillStyle = entity["colour"];
-        strokeStyle = fillStyle;
-        arc(x, y, (entity["radius"])?entity["radius"]:50, 0, 2.0 * Math.PI, false);  
-        stroke();                                
+
+        moveTo(x,y);
+        var img;
+
+        if (entity['colour'] === 'blue') {
+            img = squirtle;
+        }
+        else if (entity['colour'] === 'red') {
+            img = squirtle;
+        } 
+        else if (entity['colour'] === 'green') {
+            img = squirtle;
+        } 
+        else {
+            fillStyle = entity["colour"];
+            strokeStyle = fillStyle;
+            arc(x, y, (entity["radius"])?entity["radius"]:50, 0, 2.0 * Math.PI, false);  
+            stroke();
+        }
+        drawImage(img, x - img.width/2, y - img.height/2);                                
     }
 }
 
@@ -70,12 +125,12 @@ function prepEntity(entity) {
 }
 
 function clearFrame() {
-    with(context) {
-	moveTo(0,0);
-	fillStyle = "#000";
-	fillRect(0,0,W,H);
-    }
-
+    context.clearRect (0, 0, canvas.width, canvas.height);
+    //with(context) {
+	//moveTo(0,0);
+	//fillStyle = "#000";
+	//fillRect(0,0,W,H);
+    //}
 }
 
 // This actually draws the frame
@@ -122,9 +177,14 @@ function getPosition(e) {
 }
 
 function addEntity(entity, data) {
-    world[entity] = data;
+    obj = {};
+    obj[entity] = data;
+    socket.send(JSON.stringify(obj));
+    console.log('Sent on Web Socket: ' + JSON.stringify(obj));
+
+    world[entity] = data;  
     drawNextFrame(); // (but should we?)
-    //XXX: Send a XHTML Request that updates the entity you just modified!
+
 }
 var counter = 0;
 function addEntityWithoutName(data) {
@@ -254,6 +314,8 @@ function wsSetup() {
     socket = new WebSocket(url);
     socket.onopen = function() {
         //XXX: TODO What are you going to do here?
+        wscounter += 1; // Should I?
+        // Nothing per example. Socket open
     };
     socket.onerror = function(msg) {
         debug("WebSocket Error:" + msg.data);
@@ -261,17 +323,20 @@ function wsSetup() {
     socket.onmessage = function(msg) {  
         try {
             debug("WebSocket Recv:" + msg.data);
-            //XXX: TODO What are you going to do here?            
+            //XXX: TODO What are you going to do here?
+            var data = JSON.parse(msg.data);
+            var key = Object.keys(data)[0];
+            var entry = data[key];
+            world[key] = entry;
+            drawNextFrame();    
+
         } catch (e) {
-            alert("socket on message: " + e);
+            alert("Socket on message: " + e);
         }
     }; 
 }
 
 wsSetup();
-
-
-
 
 // 30 frames per second
 setInterval( update, 1000/30.0);

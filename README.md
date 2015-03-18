@@ -11,9 +11,7 @@ Prereqs
 =======
 
 pip install flask-sockets
-
 pip install ws4py
-
 pip install gunicorn
 
 Contributors / Licensing

@@ -26,6 +26,10 @@ app = Flask(__name__)
 sockets = Sockets(app)
 app.debug = True
 
+# Defined in Hindle's examples
+
+gevents = list()
+
 class World:
     def __init__(self):
         self.clear()
@@ -59,49 +63,86 @@ class World:
     def world(self):
         return self.space
 
-myWorld = World()        
+myWorld = World()
+
+class Client:
+    # Client setup from Dr. Hindle's Notes
+    def __init__(self):
+        self.queue = queue.Queue()
+
+    def put(self, v):
+        self.queue.put_nowait(v)
+
+    def get(self):
+        return self.queue.get()
+
+clients = list()
+
+def send_all(msg):
+    # Defined in Hindle's Examples
+    for client in clients:
+        client.put( msg )
+
+def send_all_json(obj):
+    # Defined in Hindle's Examples
+    send_all( json.dumps(obj) )        
 
 def set_listener( entity, data ):
     ''' do something with the update ! '''
+    send_all_json( { entity : data } )
 
 myWorld.add_set_listener( set_listener )
-
-def send_all_json(obj):
-    # REQUIRED????
-    send_all( json.dumps(obj) )
-        
+      
 @app.route('/')
 def hello():
     '''Return something coherent here.. perhaps redirect to /static/index.html '''
     return send_from_directory('static', 'index.html')
 
-def read_ws(ws,client):
+def read_ws(ws, client):
     '''A greenlet function that reads from the websocket and updates the world'''
-    # CHECK THIS???
     # XXX: TODO IMPLEMENT ME
+    # Taken directly from Hindle's Notes
     try:
         while True:
             msg = ws.receive()
             print "Web Socket recv: %s" % msg
             if (msg is not None):
-                packet = json.loads(msg)
-                send_all_json( packet )
+                msg = json.loads(msg)
+                for key in msg:
+                    value = msg[key]
+                    myWorld.set(key, value)
+                    
+                gevent.spawn(send_all_json, msg)
             else:
                 break
     except:
-        done
-
+        '''Done'''
+        
 @sockets.route('/subscribe')
 def subscribe_socket(ws):
     '''Fufill the websocket URL of /subscribe, every update notify the
        websocket and read updates from the websocket '''
     # XXX: TODO IMPLEMENT ME
-    return None
+    # Taken from Hindle's Notes on Websockets
+    client = Client()
+    clients.append(client)
+    g = gevent.spawn( read_ws, ws, client )    
+    try:
+        while True:
+            # block here
+            msg = client.get()
+            ws.send(msg)
 
+    except Exception as e:
+        print "Web Socket Error %s" % e
+    finally:
+        clients.remove(client)
+        gevent.kill(g)
 
 def flask_post_json(request):
     '''Ah the joys of frameworks! They do so much work for you
        that they get in the way of sane operation!'''
+    # Taken from A4
     if (request.json != None):
         return request.json
     elif (request.data != None and request.data != ''):
@@ -112,7 +153,7 @@ def flask_post_json(request):
 @app.route("/entity/<entity>", methods=['POST','PUT'])
 def update(entity):
     '''update the entities via this interface'''
-    #Fixed to use Hindle's JSON functions
+    # Taken from A4
     myData = flask_post_json(request)
 
     if request.method == "POST":
@@ -128,27 +169,23 @@ def update(entity):
 @app.route("/world", methods=['POST','GET'])    
 def world():
     '''you should probably return the world here'''
-    if request.method == "POST":
-        aWorld = flask_post_json(request)
-        return jsonify(myWorld.world())
-
-    elif request.method == "GET":
-        return jsonify(myWorld.world())
+    # Taken from A4
+    return jsonify(myWorld.world())
 
 @app.route("/entity/<entity>")    
 def get_entity(entity):
-    '''This is the GET version of the entity interface, return a representation of the entity'''
+    '''This is the GET version of the entity interface, 
+       return a representation of the entity'''
+    # Taken from A4
     return jsonify(** myWorld.get(entity))
-
 
 @app.route("/clear", methods=['POST','GET'])
 def clear():
     '''Clear the world out!'''
+    # Taken from A4
     # Call built in function 
     myWorld.clear()
     return jsonify(myWorld.world())
-
-
 
 if __name__ == "__main__":
     ''' This doesn't work well anymore:
