@@ -35,6 +35,8 @@ var context = canvas.getContext("2d");
 var W = canvas.width  = window.innerWidth-6;
 var H = canvas.height = window.innerHeight-50;
 var squirtle = new Image();
+var ivy = new Image();
+var charz = new Image();
 var wscounter = 0;
 var socket;
 world = {};
@@ -42,6 +44,8 @@ world = {};
 
 window.onload = function() {
     squirtle.src = "static/img/squirtle.png";
+    ivy.src = "static/img/ivy.png";
+    charz.src = "static/img/char.png";
 }
 
 
@@ -273,7 +277,26 @@ mouse.mousedraggers.push(function(x,y,clicked,e) {
 
 
 function update() {
+    drawNextFrame();
     drawFrame();
+}
+
+function getXMLHTTPRequest(url, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', url)
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+            try {
+                if (xhr.status==200) {
+                    world = JSON.parse(xhr.responseText);
+                }   
+            } catch(e) {
+                alert('XML Get Error: ' + e.name);
+            }
+        }
+    };   
+
+    xhr.send();
 }
 
 
@@ -283,7 +306,14 @@ function wsSetup() {
     socket.onopen = function() {
         //XXX: TODO What are you going to do here?
         wscounter += 1; // Should I?
-        // Nothing per example. Socket open
+        console.log('Connection!');
+        getXMLHTTPRequest('/world')
+        
+        update();
+
+
+        // Socket open. But need to send in the world.
+        // socket.send(JSON.stringify(world));
     };
     socket.onerror = function(msg) {
         debug("WebSocket Error:" + msg.data);
@@ -301,6 +331,7 @@ function wsSetup() {
         } catch (e) {
             alert("Socket on message: " + e);
         }
+
     }; 
 }
 

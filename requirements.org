@@ -29,35 +29,35 @@
      the README.md file
 
 ** User Stories
-   - As a web browser user I want to draw on the canvas
-   - As a web browser user I want to see others drawing on the canvas
-   - As a web browser user I want the system to be responsive to my
+   - [X] As a web browser user I want to draw on the canvas
+   - [X} As a web browser user I want to see others drawing on the canvas
+   - [X] As a web browser user I want the system to be responsive to my
      actions (< 100ms)
-   - As a web browser user I want to watch as other users draw on the
+   - [X] As a web browser user I want to watch as other users draw on the
      canvas
-   - As a web service user I want to get access to the world
-   - As a web service user I want to post entities that have at least
+   - [X] As a web service user I want to get access to the world
+   - [X] As a web service user I want to post entities that have at least
      'x' and 'y' co-ordinates
-   - As a web service user I will probably ping the system a lot to
+   - [X] As a web service user I will probably ping the system a lot to
      get updates.
 
 ** Requirements
 
-   - [ ] Implement the Websockets Javascript parts in the HTML file static/index.htm
-   - [ ] Implement the Websockets send/recv part of the webservice
-   - [ ] Upon update all the clients should recv a websocket update message
+   - [X] Implement the Websockets Javascript parts in the HTML file static/index.htm
+   - [X] Implement the Websockets send/recv part of the webservice
+   - [X] Upon update all the clients should recv a websocket update message
    - [X] Use JSON or XML to communicate (no plain text!)
-   - [ ] The webservice can pass all the tests in freetests.py
+   - [X] The webservice can pass all the tests in freetests.py
    - [X] The webservice can serve /static/index.html
-   - [ ] static/index.html displays the current state of the webservice
-   - [ ] static/index.html responds to clicks within 100ms on average
-   - [ ] Make static/index.html images look nice
+   - [X] static/index.html displays the current state of the webservice
+   - [X] static/index.html responds to clicks within 100ms on average
+   - [X] Make static/index.html images look nice
 
  
 ** Restrictions
    - [X] Use Python 2.7
    - [X] Must run in the undergrad lab (Ubuntu 12.04)
-   - [ ] License your code properly (use an OSI approved license)
+   - [X] License your code properly (use an OSI approved license)
      - Put your name on it!
 
 ** Submission Instructions

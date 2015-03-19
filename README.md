@@ -16,6 +16,7 @@ pip install gunicorn
 
 Contributors / Licensing
 ========================
+License extended by Daniel Phan (c) 2015
 
 Generally everything is LICENSE'D under the Apache 2 license by Abram Hindle.
 
@@ -52,6 +53,6 @@ POSSIBILITY OF SUCH DAMAGE.
 
 Contributors
 ============
-
+* Daniel Phan
 * Mark Galloway
 * Abram Hindle

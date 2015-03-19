@@ -89,7 +89,9 @@ def send_all_json(obj):
 
 def set_listener( entity, data ):
     ''' do something with the update ! '''
-    send_all_json( { entity : data } )
+    msg = json.dumps( { entity : data } )
+    for client in clients:
+        client.put( msg )
 
 myWorld.add_set_listener( set_listener )
       
@@ -108,14 +110,18 @@ def read_ws(ws, client):
             print "Web Socket recv: %s" % msg
             if (msg is not None):
                 msg = json.loads(msg)
+
+                # Modifed to set world
                 for key in msg:
                     value = msg[key]
                     myWorld.set(key, value)
-                    
-                gevent.spawn(send_all_json, msg)
+
+                # Something send json
+                #gevent.spawn(send_all_json, msg)
             else:
                 break
     except:
+        # What?
         '''Done'''
         
 @sockets.route('/subscribe')
@@ -126,6 +132,7 @@ def subscribe_socket(ws):
     # Taken from Hindle's Notes on Websockets
     client = Client()
     clients.append(client)
+    json.dumps(myWorld.world())
     g = gevent.spawn( read_ws, ws, client )    
     try:
         while True:
