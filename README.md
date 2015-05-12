@@ -6,5 +6,8 @@ Note the following forks.
 Assignment 1 - Webserver:  
 	https://github.com/abramhindle/CMPUT404-assignment-webserver  
 
+Assignment 2 - Webclient:  
+	https://github.com/abramhindle/CMPUT404-assignment-web-client  
+
 
 	
