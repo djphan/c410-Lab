@@ -9,6 +9,9 @@ Assignment 1 - Webserver:
 Assignment 2 - Webclient:  
 	https://github.com/abramhindle/CMPUT404-assignment-web-client  
 
+Assignment 3 - CSS Hell:
+	https://github.com/abramhindle/CMPUT404-assignment-css-hell  
+
 Assignment 5 - Canvas and Websockets:   
 	https://github.com/abramhindle/CMPUT404-assignment-websockets  
 
