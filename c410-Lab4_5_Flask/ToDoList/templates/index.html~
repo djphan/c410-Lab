@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Dan Flask ToDo List Application</title>
+        <meta charset="UTF-8">
+    </head>
+
+
+    {% block body %}
+    <body>
+        <form action ="" method=post>
+            <p><b><u>Catagory:</u> </b> <input type=text size=30 name=catagory></p>
+            <p><b><u>Priority:</u> </b> <input type=text size=30 name=priority></p>
+            <p><b><u>Description:</u> </b> 
+                <input type=text size=30 name=description> </p>
+            <br/>
+            <input type="submit" value="Submit">
+        </form>
+
+        <br/>
+        <p><b><u> To-Do List! </u></b></p>
+
+         
+        <table border="1" cellpadding="10">
+            <tbody>
+            {% for rowid in tasks %}
+                <td>{{ tasks['category'][rowid] }}</td>
+                <td>{{ tasks['priority'][rowid] }}</td>
+                <td>{{ tasks['description'][rowid] }}</td>
+
+            {% endfor %}
+            </tbody>    
+
+    </body>
+    {% endblock %}
+
+
+</html>
