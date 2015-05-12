@@ -1,0 +1,127 @@
+body {
+	background-color: #FAFAFA;
+	font-family: 'Oxygen', sans-serif;
+}
+
+
+h1 {
+	text-align: center;	
+}
+
+h3 {
+
+	color:rgba(135, 206, 235, 1);
+	text-decoration: underline;
+}
+
+h4 {
+	margin: 0;
+	padding-left: 5pt;
+	color:#8CB2FF;
+}
+
+table {
+	padding: 0px; 
+	margin: 0px; 
+	border: 0;
+	border-collapse: collapse;
+	border-spacing: 0px;
+
+	font-size: 10pt;
+}
+
+.border {
+
+}
+
+.contact {
+	float: right;
+	position:absolute;
+	width:35%;
+	top: 6%;
+	left:65%;
+}
+
+.skills {
+	float:right;
+	position:absolute;
+	width:35%;
+	top: 37%;
+	left:65%;
+}
+
+.content {
+	position: relative;
+	float: left;
+	width: 60%;
+	padding: 5pt;	
+}
+
+
+table {
+	padding-left: 5pt;
+}
+
+tr { 
+	padding: 0px; 
+	margin: 0px; 
+	border: 0;
+}
+
+td {
+	padding: 5px; 
+	margin: 0px; 
+	border: 0;
+}
+
+img.icon {
+	display: block;
+
+	width: auto;
+	height: 20%;
+}
+
+img.face {
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	width: 15em;
+
+}
+
+ul {
+	list-style-type: none;
+}
+
+.mainlist {
+	list-style-type: disc;
+	color: rgba(135, 206, 235, 1);
+}
+
+.cardbar {
+	padding: 10px;
+	margin-right: 1%;
+
+	border-radius: 5px;
+	background-color:rgba(135, 206, 235, 0.2);
+}
+
+.bar {
+	padding: 10px;
+	background-color: rgba(135, 206, 235, 1);
+	color:white;
+	font-size: 14pt;
+}
+
+.footbar {
+	position:absolute;
+	bottom:0;
+	padding: 10px;
+	background-color: rgba(135, 206, 235, 1);
+
+	color:white;
+	font-size: 14pt;
+	text-align: center;
+}
+
+
