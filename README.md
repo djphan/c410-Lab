@@ -9,6 +9,9 @@ Assignment 1 - Webserver:
 Assignment 2 - Webclient:  
 	https://github.com/abramhindle/CMPUT404-assignment-web-client  
 
+Assignment 5 - Canvas and Websockets:   
+	https://github.com/abramhindle/CMPUT404-assignment-websockets  
+
 Social Distribution Project Specs:  
 	https://github.com/abramhindle/CMPUT404-project-socialdistribution  
 	
