@@ -9,5 +9,6 @@ Assignment 1 - Webserver:
 Assignment 2 - Webclient:  
 	https://github.com/abramhindle/CMPUT404-assignment-web-client  
 
-
+Social Distribution Project Specs:  
+	https://github.com/abramhindle/CMPUT404-project-socialdistribution  
 	
